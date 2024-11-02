@@ -13,10 +13,10 @@ export default function login() {
                     <Image src={assests.bearlogin} alt="Bear Image" className="rounded-md w-[850px]" />
                 </div>
                 {/* Login Box */}
-                <div className="bg-[#FFF2D4] rounded-md p-5 shadow-md w-[350px] text-center">
+                <div className="bg-[#FFF2D4] rounded-3xl p-7 shadow-md w-[350px] text-center">
                     <form>
                         <h1 className="text-2xl mb-5 font-bold">Login</h1>
-                        <div className="mb-4 text-left pr-12 relative">
+                        <div className="mb-4 text-left  relative">
                             <label className="block">Username</label>
 
                             {/* ใส่ไอคอนด้วย <Image /> */}
@@ -35,11 +35,11 @@ export default function login() {
                                 placeholder="Your Username"
                                 required
                                 id="username"
-                                className="w-full p-2 pl-10 rounded-md border border-[#C4A484] bg-white text-lg"
+                                className="w-full p-2 pl-10 rounded-md border border-[#C4A484] bg-white text-lg "
                             />
                         </div>
 
-                        <div className="mb-4 text-left pr-12 relative">
+                        <div className="mb-4 text-left  relative">
                             <label className="block">Password</label>
 
                             {/* ใส่ไอคอนด้วย <Image /> */}
