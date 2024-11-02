@@ -1,5 +1,5 @@
 import React from 'react'
-import { assests } from '@/assets/assets'
+import { assests } from '../../assets/assets'
 import Image from 'next/image'
 import Link from 'next/link'
 export default function Navbar() {
