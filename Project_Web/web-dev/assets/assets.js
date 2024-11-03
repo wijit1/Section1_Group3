@@ -19,7 +19,12 @@ import p1 from './p1.jpg'
 import p2 from './p2.jpg'
 import p3 from './p3.jpg'
 import p4 from './p4.jpg'
-
+import trash from './trash.png'
+import dollar from './dollar.png'
+import bearlogin from './bearlogin.png'
+import key from './key.png'
+import mail from './mail.png'
+import money_bag from './money_bag.png'
 
 export const assests = {
     home,
@@ -32,6 +37,12 @@ export const assests = {
     setting,user,
     narutoA,Goku,friren,luffyG5,coin
     ,arrow,play,luffysnake
+    ,trash
+    ,dollar
+    ,bearlogin
+    ,key
+    ,mail
+    ,money_bag
 
 }
 
