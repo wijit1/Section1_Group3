@@ -33,6 +33,7 @@ import address from './address.png'
 import calendar from './calendar.png'
 import phone_call from './phone_call.png' 
 import photo_book from './photo_book.png'
+import moodeng from './moodeng.jpg'
 
 export const assests = {
     home,
@@ -56,6 +57,7 @@ export const assests = {
     ,calendar
     ,phone_call
     ,photo_book
+    ,moodeng
 }
 
 

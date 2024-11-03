@@ -5,7 +5,7 @@ export default function product_man() {
    <div>
     <div className="flex justify-items-end items-center m-5 pl-60">
     <div className="flex items-center m-5 border border-red-950 w-24 h-14 bg-green-400 rounded-3xl ">
-      <a href="#515515151" className="text-black hover:text-green-800 font-semibold text-lg py-2 px-4 rounded ">←Back</a>
+      <div href="#515515151" className="text-black hover:text-green-800 font-semibold text-lg py-2 px-4 rounded ">←Back</div>
     </div>
     <div className="font-bold text-7xl">
       Product/Service Management
