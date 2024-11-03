@@ -25,6 +25,10 @@ import bearlogin from './bearlogin.png'
 import key from './key.png'
 import mail from './mail.png'
 import money_bag from './money_bag.png'
+import ton from './ton.png'
+import bank from './bank.png'
+import first from './first.png'
+import atom from './atom.png'
 
 export const assests = {
     home,
@@ -43,6 +47,7 @@ export const assests = {
     ,key
     ,mail
     ,money_bag
+    ,ton,bank,atom,first
 
 }
 

@@ -12,18 +12,19 @@ export default function Navbar() {
                 </div>
                 {/* Center Navbar */}
                 <div className="flex gap-10 text-2xl text-gray-700 ">
-                    
+
                     <Link href={'/'}>
                         <div className="flex flex-col items-center gap-5 cursor-pointer hover:text-red-400 hover:underline">
                             <Image src={assests.home} width={40} height={40} alt='home page icon' />
                             <p>Home page</p>
                         </div>
                     </Link>
-                
-                    <div className="flex flex-col items-center gap-5">
-                        <Image src={assests.teamIcon} width={40} height={40} alt='Team Icon' />
-                        <p>Teampage</p>
-                    </div>
+                    <Link href={'/team'}>
+                        <div className="flex flex-col items-center gap-5">
+                            <Image src={assests.teamIcon} width={40} height={40} alt='Team Icon' />
+                            <p>Teampage</p>
+                        </div>
+                    </Link>
                     <Link href={'/product_man'}>
                         <div className="flex flex-col items-center gap-1">
                             <div className="relative">
