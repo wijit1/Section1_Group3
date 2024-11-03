@@ -1,9 +1,12 @@
-import Image from "next/image";
 
+
+import { Hero } from "@/components/Hero";
+import { Section } from "@/components/Section";
 export default function Home() {
   return (
     <div>
-      <h1 className="text-3xl border border-red-700">Hello</h1>
+      <Hero/>
+      <Section/>
     </div>
     
   );
