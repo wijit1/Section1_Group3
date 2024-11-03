@@ -29,6 +29,10 @@ import ton from './ton.png'
 import bank from './bank.png'
 import first from './first.png'
 import atom from './atom.png'
+import address from './address.png'
+import calendar from './calendar.png'
+import phone_call from './phone_call.png' 
+import photo_book from './photo_book.png'
 
 export const assests = {
     home,
@@ -48,7 +52,10 @@ export const assests = {
     ,mail
     ,money_bag
     ,ton,bank,atom,first
-
+    ,address
+    ,calendar
+    ,phone_call
+    ,photo_book
 }
 
 
