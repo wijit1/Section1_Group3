@@ -8,7 +8,7 @@ export const Collection = () => {
     const { products, search, setSearch } = useContext(ShopContext);
     const [filterProducts, setFilterProducts] = useState([]);
 
-    const appyFilter = () => {
+    const applyFilter = () => {
         let productsCopy = products.slice();
         if(search){
             productsCopy = productsCopy.filter(item => item.Name.toLowerCase().includes(search.toLowerCase()))
@@ -16,16 +16,20 @@ export const Collection = () => {
 
         setFilterProducts(productsCopy);
     }
+
     useEffect(() => {
-        appyFilter();
+        applyFilter();
         console.log(search);
 
     }, [search, setSearch])
-    return (
-        <div className='flex  w-full border border-red-700 rounded-xl p-10 flex-wrap gap-[50px]'>
-            {filterProducts.map((product, index) => (
+    
+    return  filterProducts.length > 0 ?(
+        <div className='flex  w-full border-4  border-gray-400 rounded-xl p-10 flex-wrap gap-[50px]'>
+            {filterProducts?.map((product, index) => (
                 <ProductItem product={product} key={index} />
-            ))}
+            ))} 
         </div>
-    )
+    ): (<div className='flex text-5xl justify-center items-center  w-full border-8 border-gray-400 rounded-xl p-10 flex-wrap gap-[50px]'>
+                Not found 
+        </div>)
 }
