@@ -35,7 +35,7 @@ export const Section = () => {
 
 
                 {/* Hot product Section */}
-
+                
             </section>
         </div>
     )
