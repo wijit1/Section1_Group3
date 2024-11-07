@@ -1,8 +1,8 @@
 "use client"; // Add this line at the top
-
 import React, { useState } from 'react'
 import { assests } from '../../assets/assets'
 import Image from 'next/image'
+import PriceRangeFilter from './PriceRangeFilter';
 
 export const Category = () => {
   /* ตั้งไว้ยังไม่โชว์ถ้าไม่กด */
@@ -50,7 +50,11 @@ export const Category = () => {
           <p class="hover:text-red-400 hover:underline">Brand B</p>
           <p class="hover:text-red-400 hover:underline">Brand C</p>
         </div>
+        
       )}
+      <div class="mt-6">
+      <PriceRangeFilter/>
+      </div>
     </div>
   )
 }
