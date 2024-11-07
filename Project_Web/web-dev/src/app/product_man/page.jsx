@@ -60,6 +60,7 @@ export default function ProductMan() {
                 <td className="px-4 py-3 text-gray-600">{product.id}</td>
                 <td className="px-4 py-3">
                   <div className="flex items-center">
+                      {/* รูปสินใส่แทนยังไม่รู้ดึงรูปเวลากด add product ยังไง */}
                     <img src="https://via.placeholder.com/50" alt="Product Image" className="w-12 h-12 rounded" />
                     <span className="ml-4 text-gray-700">{product.name}</span>
                   </div>

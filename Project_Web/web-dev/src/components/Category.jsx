@@ -30,7 +30,7 @@ export const Category = () => {
         <div className="p-3 border border-t-0 border-gray-300 bg-yellow-50">
           <p class="hover:text-red-400 hover:underline">Super Sale 2024</p>
           <p class="hover:text-red-400 hover:underline">New Release</p>
-          <p class="hover:text-red-400 hover:underline">Premium Super Exolusive</p>
+          <p class="hover:text-red-400 hover:underline">Premium Super Exclusive</p>
         </div>
       )}
 
