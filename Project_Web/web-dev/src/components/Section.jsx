@@ -18,18 +18,18 @@ export const Section = () => {
 
     return (
         <div>
-            <section className="flex flex-col  justify-center mt-10 border-2 border-green-600">
+            <section className="flex flex-col  justify-center mt-10 border-2 border-green-600 ">
                  {/* Super Sale Section */}
                 <div className="flex flex-col items-start justify-items-start px-32 ">
                     <p className="text-5xl text-yellow-400 font-bold border-8 border-yellow-500 p-3 rounded-2xl bg-zinc-800 "> Super Sale </p>
             
-                    <div className="flex gap-10 mt-7 mb-7 justify-between items-center  w-full">
-                        <button onClick={()=>setCount(count+1)}><Image className="w-[40px] h-auto rotate-180" src={assests.arrow} width={40} height={40}/></button>
+                    <div className="flex gap-10 mt-7 mb-7 justify-between items-center  w-full ">
+                        <button onClick={()=>setCount(count+1)}><Image className="w-[40px] h-auto rotate-180 " src={assests.arrow} width={40} height={40}/></button>
                         {/* For each product */}
                         {products.map((product,index)=>(
-                            <ProductItem product={product} key={index}/>
+                            <ProductItem  product={product} key={index} />
                         ))}
-                        <button onClick={()=>setCount(count+1)}><Image className="w-[40px] h-[full]" src={assests.arrow}/></button>
+                        <button onClick={()=>setCount(count+1)}><Image className="w-[40px] h-[full] " src={assests.arrow}/></button>
                     </div>
                 </div>
 

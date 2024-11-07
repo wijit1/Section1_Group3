@@ -4,7 +4,7 @@ import { assests } from '../../assets/assets'
 
 export const ProductItem = ({ product }) => {
     return (
-        <div className="flex flex-col gap-2 px-7 py-8 border-4 border-gray-800 rounded-xl bg-gray-100">
+        <div className="flex flex-col gap-2 px-7 py-8 border-4 border-gray-800 rounded-xl bg-gray-100 hover:text-red-400 hover:underline">
             <div className="w-[248px] h-[248px] bg-red-800">
                 <Image className='w-full h-full' src={product.Picture[0]} alt={product.Name} />
             </div>
