@@ -14,19 +14,19 @@ export default function Navbar() {
                 <div className="flex gap-10 text-2xl text-gray-700 ">
 
                     <Link href={'/'}>
-                        <div className="flex flex-col items-center gap-5 cursor-pointer hover:text-red-400 hover:underline">
+                        <div className="flex flex-col items-center gap-1 cursor-pointer hover:text-red-400 hover:underline">
                             <Image src={assests.home} width={40} height={40} alt='home page icon' />
                             <p>Home page</p>
                         </div>
                     </Link>
                     <Link href={'/team'}>
-                        <div className="flex flex-col items-center gap-5">
+                        <div className="flex flex-col items-center gap-1 cursor-pointer hover:text-red-400 hover:underline">
                             <Image src={assests.teamIcon} width={40} height={40} alt='Team Icon' />
                             <p>Teampage</p>
                         </div>
                     </Link>
                     <Link href={'/product_man'}>
-                        <div className="flex flex-col items-center gap-1">
+                        <div className="flex flex-col items-center gap-1 cursor-pointer hover:text-red-400 hover:underline">
                             <div className="relative">
                                 <Image src={assests.robot} width={40} height={40} alt='Icon product management' />
                                 <Image className="absolute right-[-10px] top-[-15px] w-5 h-5 " src={assests.setting} width={40} height={40} alt='decorate icon' />
@@ -39,7 +39,7 @@ export default function Navbar() {
                     </Link>
 
                     <Link href={'/user_man'}>
-                        <div className="flex flex-col items-center gap-1">
+                        <div className="flex flex-col items-center gap-1 cursor-pointer hover:text-red-400 hover:underline">
                             <div className="relative">
                                 <Image src={assests.user} width={40} height={40} alt='Icon Team page ' />
                                 <Image className="absolute right-[-10px] top-[-15px] w-5 h-5 " src={assests.setting} width={40} height={40} alt='decorate icon' />
