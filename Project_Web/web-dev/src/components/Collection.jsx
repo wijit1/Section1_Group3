@@ -5,7 +5,7 @@ import { ShopContext } from '@/context/ShopContext';
 
 
 export const Collection = () => {
-    const { products, search, setSearch } = useContext(ShopContext);
+    const { products, search, setSearch,priceRange,setPriceRange} = useContext(ShopContext);
     const [filterProducts, setFilterProducts] = useState([]);
 
     const applyFilter = () => {
@@ -14,6 +14,8 @@ export const Collection = () => {
             productsCopy = productsCopy.filter(item => item.Name.toLowerCase().includes(search.toLowerCase()))
         }
 
+        productsCopy = productsCopy.filter((item)=> item.Price >= priceRange[0] && item.Price <= priceRange[1])
+
         setFilterProducts(productsCopy);
     }
 
@@ -21,7 +23,7 @@ export const Collection = () => {
         applyFilter();
         console.log(search);
 
-    }, [search, setSearch])
+    }, [search, setSearch ,priceRange,setPriceRange])
     
     return  filterProducts.length > 0 ?(
         <div className='flex  w-full border-4  border-gray-400 rounded-xl p-10 flex-wrap gap-[50px]'>
