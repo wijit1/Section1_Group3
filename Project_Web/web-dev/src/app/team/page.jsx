@@ -11,25 +11,25 @@ export default function team() {
                         <Image src={assests.ton} alt="Wijit Nildee Image" className="w-36 h-36 rounded-md object-cover mx-auto mb-4" />
                         <h4 className="text-lg text-gray-800 font-medium">Wijit Nildee</h4>
                         <p className="text-gray-600 text-sm">Dev/Web Design</p>
-                        <p className="text-yellow-500 text-sm"><a href="mailto:kawkawza20@gmail.com">kawkawza20@gmail.com</a></p>
+                        <p className="text-yellow-500 text-sm hover:text-red-400 hover:underline"><a href="mailto:kawkawza20@gmail.com">kawkawza20@gmail.com</a></p>
                     </div>
                     <div className="bg-white rounded-lg p-5 shadow-lg w-56 text-center">
                         <Image src={assests.bank} alt="Sorakit Wongkunta Image" className="w-36 h-36 rounded-md object-cover mx-auto mb-4" />
                         <h4 className="text-lg text-gray-800 font-medium">Sorakit Wongkunta</h4>
                         <p className="text-gray-600 text-sm">Dev/Web Design</p>
-                        <p className="text-yellow-500 text-sm"><a href="mailto:htoo24653@gmail.com">htoo24653@gmail.com</a></p>
+                        <p className="text-yellow-500 text-sm hover:text-red-400 hover:underline"><a href="mailto:htoo24653@gmail.com">htoo24653@gmail.com</a></p>
                     </div>
                     <div className="bg-white rounded-lg p-5 shadow-lg w-56 text-center">
                         <Image src={assests.atom} alt="Sirawich Eamsaard Image" className="w-36 h-36 rounded-md object-cover mx-auto mb-4" />
                         <h4 className="text-lg text-gray-800 font-medium">Sirawich Eamsaard</h4>
                         <p className="text-gray-600 text-sm">Payments Support</p>
-                        <p className="text-yellow-500 text-sm"><a href="mailto:atom.2446@gmail.com">atom.2446@gmail.com</a></p>
+                        <p className="text-yellow-500 text-sm hover:text-red-400 hover:underline"><a href="mailto:atom.2446@gmail.com">atom.2446@gmail.com</a></p>
                     </div>
                     <div className="bg-white rounded-lg p-5 shadow-lg w-56 text-center">
                         <Image src={assests.first} alt="Yanaphat Jumpaburee Image" className="w-36 h-36 rounded-md object-cover mx-auto mb-4" />
                         <h4 className="text-lg text-gray-800 font-medium">Yanaphat Jumpaburee</h4>
                         <p className="text-gray-600 text-sm">Specialized Support</p>
-                        <p className="text-yellow-500 text-sm"><a href="mailto:yanaphatjum@gmail.com">yanaphatjum@gmail.com</a></p>
+                        <p className="text-yellow-500 text-sm hover:text-red-400 hover:underline"><a href="mailto:yanaphatjum@gmail.com">yanaphatjum@gmail.com</a></p>
                     </div>
                 </div></section>
         </div>

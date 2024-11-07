@@ -28,9 +28,9 @@ export const Category = () => {
       </div>
       {isCategoryOpen1 && (
         <div className="p-3 border border-t-0 border-gray-300 bg-yellow-50">
-          <p>Super Sale 2024</p>
-          <p>New Release</p>
-          <p>Premium Super Exolusive</p>
+          <p class="hover:text-red-400 hover:underline">Super Sale 2024</p>
+          <p class="hover:text-red-400 hover:underline">New Release</p>
+          <p class="hover:text-red-400 hover:underline">Premium Super Exolusive</p>
         </div>
       )}
 
@@ -45,10 +45,10 @@ export const Category = () => {
         />
       </div>
       {isCategoryOpen2 && (
-        <div className="p-3 border border-t-0 border-gray-300 bg-yellow-50">
-          <p>Brand A</p>
-          <p>Brand B</p>
-          <p>Brand C</p>
+        <div className="p-3 border border-t-0 border-gray-300 bg-yellow-50 ">
+          <p class="hover:text-red-400 hover:underline">Brand A</p>
+          <p class="hover:text-red-400 hover:underline">Brand B</p>
+          <p class="hover:text-red-400 hover:underline">Brand C</p>
         </div>
       )}
     </div>
