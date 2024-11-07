@@ -30,7 +30,7 @@ export default function Add_EditAccount() {
                             </div>
                             <div className="space-y-4">
                                 <div className="w-32 h-32 bg-gray-200 rounded-lg overflow-hidden">
-                                <Image src={assests.moodeng} width={130} />
+                                    <Image src={assests.moodeng} width={130} />
                                 </div>
                                 <button className="text-gray-500 text-sm">Add Image</button>
                                 <div className="space-y-4">
