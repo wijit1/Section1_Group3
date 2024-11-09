@@ -11,9 +11,10 @@ export default function User_Man() {
 
   // ข้อมูลตัวอย่างของสินค้า
   const products = [
-    { id: '001', name: 'Wijit Nildee', address: '1150 Iceland', email: 'wijit.nil@student.mahidol.ac.th', tel: '082-721-7440', brithdate: '2002-04-28' },
-    { id: '002', name: 'Luffu', address: '1150 Iceland', email: 'wijit.nil@student.mahidol.ac.th', tel: '082-721-7440', brithdate: '2002-04-28' },
-    { id: '003', name: 'Sonju', address: '1150 Iceland', email: 'wijit.nil@student.mahidol.ac.th', tel: '082-721-7440', brithdate: '2002-04-28' }
+    { id: '001', name: 'Wijit Nildee', address: '1150 Iceland', email: 'kawkawza20@gmail.com', tel: '082-721-XXXX', brithdate: '2002-04-28' },
+    { id: '002', name: 'Sorakit Wongkunta', address: '1112 Hotland', email: 'htoo24653@gmail.com', tel: '081-445-XXXX', brithdate: '2004-01-05' },
+    { id: '003', name: 'Sirawich Eamsaard', address: '191 England', email: 'atom.2446@gmail.com', tel: '092-248-XXXX', brithdate: '2003-05-15' },
+    { id: '004', name: 'Yanaphat Jumpaburee', address: '1150 Japan', email: 'yanaphatjum@gmail.com', tel: '081-629-XXXX', brithdate: '2004-04-09'}
 
   ];
 
