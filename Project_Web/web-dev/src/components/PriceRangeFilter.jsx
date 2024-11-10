@@ -5,27 +5,6 @@ import React, { useContext, useState } from 'react';
 const PriceRangeFilter = () => {
 
   const {priceRange,setPriceRange,handleMaxPriceInput,handleMinPriceInput,minPrice,maxPrice} = useContext(ShopContext); 
-  // const [priceRange, setPriceRange] = useState([minPrice, maxPrice]);
-
-  // const handleMinPriceInput = (e) => {
-  //   const value = Number(e.target.value);
-  //   if (value >= minPrice && value <= priceRange[1]) {
-  //     setPriceRange([value, priceRange[1]]);
-  //   }
-  // };
-
-  // const handleMaxPriceInput = (e) => {
-  //   const value = Number(e.target.value);
-  //   if (value <= maxPrice && value >= priceRange[0]) {
-  //     setPriceRange([priceRange[0], value]);
-  //   }
-  // };
-
-  // const handleSearch = () => {
-  //   onSearch(priceRange[0], priceRange[1]);
-  // };
-
-
 
 
   return (

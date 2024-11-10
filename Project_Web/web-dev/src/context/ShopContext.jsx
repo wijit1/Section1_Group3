@@ -12,6 +12,7 @@ export const ShopContextProvider = (props) => {
     const minPrice = 0; 
     const maxPrice = 20000;
     const [priceRange, setPriceRange] = useState([minPrice, maxPrice]);
+    const [imagefile,setImagefile] = useState(null);
 
     const handleMinPriceInput = (e) => {
         const value = Number(e.target.value);
@@ -31,6 +32,7 @@ export const ShopContextProvider = (props) => {
 
     const value = {
         search, setSearch, products,priceRange,setPriceRange,handleMinPriceInput,handleMaxPriceInput,minPrice,maxPrice
+        ,imagefile,setImagefile
     };
     return (
         <ShopContext.Provider value={value}>

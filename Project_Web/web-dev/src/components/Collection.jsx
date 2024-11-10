@@ -26,7 +26,7 @@ export const Collection = () => {
     }, [search, setSearch ,priceRange,setPriceRange])
     
     return  filterProducts.length > 0 ?(
-        <div className='flex  w-full border-4  border-gray-400 rounded-xl p-10 flex-wrap gap-[50px]'>
+        <div className='flex justify-between  w-full border-4  border-gray-400 rounded-xl p-10 flex-wrap gap-8'>
             {filterProducts?.map((product, index) => (
                 <ProductItem product={product} key={index} />
             ))} 

@@ -3,6 +3,7 @@
 
 import React, { useContext, useState } from 'react';
 import { assests } from "../../../assets/assets";
+import Link from 'next/link';
 import Image from "next/image";
 import { SearchBar_Man } from '@/components/SearchBar_Man';
 import { ShopContext } from '@/context/ShopContext';
@@ -37,7 +38,9 @@ export default function ProductMan() {
       {/* ใช้ SearchBar ตรงนี้ */}
       <div className="flex justify-between ml-56 pl-4">
         <SearchBar_Man/>
-        <button className="font-semibold bg-yellow-500 text-black px-8 py-3 hover:bg-yellow-600 mr-60 rounded-2xl whitespace-nowrap">Add Product</button>
+        <Link href={'/edit_product'}>
+          <button className="font-semibold bg-yellow-500 text-black px-8 py-3 hover:bg-yellow-600 mr-60 rounded-2xl whitespace-nowrap">Add Product</button>
+        </Link>
       </div>
 
       {/* ตารางสินค้า */}
