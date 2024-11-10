@@ -91,11 +91,11 @@ export default function edit_product() {
                             </div>
                             <div className="flex p-5 mt-5 justify-between border-4 gap-10 border-gray-400 rounded-xl w-full">
                                 <div className="flex flex-col gap-3">
-                                    <p className="text-gray-400">Product Price</p>
+                                    <p className="text-gray-400 text-center">Product Price</p>
                                     <input className="border-2 p-2 border-gray-800 rounded-xl" onChange={(e)=>setPrice(e.target.value)} type="text" name="price" />
                                 </div>
                                 <div className="flex flex-col gap-3">
-                                    <p className="text-gray-400">Stock</p>
+                                    <p className="text-gray-400 ml-7">Stock</p>
                                     <input className="border-2 p-2 border-gray-800 rounded-xl w-11/12" onChange={(e)=>setStock(e.target.value)} type="text" name="stock" />
                                 </div>
                             </div>
@@ -112,7 +112,7 @@ export default function edit_product() {
                         <div className="flex flex-col px-10 py-5 border-4 h-36 gap-10 w-1/2 border-gray-400 rounded-xl">
                             <div className="flex flex-col gap-3">
                                 <p className="text-gray-400">Category</p>
-                                <select onChange={(e)=>setCategory(e.target.value)} className="w-full px-5 py-2" name="category">
+                                <select onChange={(e)=>setCategory(e.target.value)} className="w-full px-5 py-2 border" name="category">
                                     <option value="all">a</option>
                                     <option value="b">b</option>
                                     <option value="c">c</option>
