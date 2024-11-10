@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function detail() {
  return (
    <div>
-     <div className="container mx-auto p-6">
+    <div className="container mx-auto p-6">
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
     {/* Image Gallery */}
     <div className="space-y-4">

@@ -91,17 +91,7 @@ export default function Edit_Product() {
                     
                     <div className="flex flex-col gap-3 w-1/2">
                         {/* Product Image */}
-                        {/* <div>
-                            <div className="flex items-center justify-start">
-                                <h1 className="text-3xl">Product Image</h1>
-                            </div>
-                            <div className="flex flex-col p-5 mt-3 border-4 gap-10 border-gray-400 rounded-xl w-full">
-                                <div className="flex flex-col gap-3">
-                                    <p className="text-gray-400">Product Image</p>
-                                    <input className="border border-red-700 rounded-xl h-48" type="image" src="" alt="" />
-                                </div>
-                            </div>
-                        </div> */}
+                        
                         <UploadImage/>
 
                         {/* Product Price and Stock */}

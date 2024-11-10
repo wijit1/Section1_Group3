@@ -1,15 +1,21 @@
 
 'use client';
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { assests } from "../../../assets/assets";
 import Link from 'next/link';
 import Image from "next/image";
 import { SearchBar_Man } from '@/components/SearchBar_Man';
 import { ShopContext } from '@/context/ShopContext';
+import ProductList from '@/components/ProductList';
 
 export default function ProductMan() {
   const { search } = useContext(ShopContext);
+  useEffect(()=>{
+    const fetchData = async () =>{
+      const res = await fetch(`/api/`);
+    }
+  },[])
 
   // ข้อมูลตัวอย่างของสินค้า
   const products = [
@@ -44,10 +50,11 @@ export default function ProductMan() {
       </div>
 
       {/* ตารางสินค้า */}
+
       <div className="overflow-x-auto mt-8 mr-60 ml-60">
-        <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+        <table className="w-full bg-white border border-gray-200 rounded-lg shadow-lg">
           <thead className="bg-gray-100">
-            <tr>
+            <tr className='flex gap-36'>
               <th className="px-4 py-2 text-gray-700 font-medium text-left">ID</th>
               <th className="px-4 py-2 text-gray-700 font-medium text-left">Product</th>
               <th className="px-4 py-2 text-gray-700 font-medium text-left">Detail</th>
@@ -59,32 +66,12 @@ export default function ProductMan() {
           </thead>
           <tbody>
             {filteredProducts.map(product => (
-              <tr key={product.id} className="border-t">
-                <td className="px-4 py-3 text-gray-600">{product.id}</td>
-                <td className="px-4 py-3">
-                  <div className="flex items-center">
-                      {/* รูปสินใส่แทนยังไม่รู้ดึงรูปเวลากด add product ยังไง */}
-                    <img src="https://via.placeholder.com/50" alt="Product Image" className="w-12 h-12 rounded" />
-                    <span className="ml-4 text-gray-700">{product.name}</span>
-                  </div>
-                </td>
-                <td className="px-4 py-3 text-gray-600">{product.detail}</td>
-                <td className="px-4 py-3 text-gray-600 ">{product.stock}</td>
-                <td className="px-4 py-3 text-gray-600">{product.brand}</td>
-                <td className="px-4 py-3 text-gray-600 flex mt-5 ">{product.price}
-                  <Image src={assests.dollar} alt="coin" className="w-5 h-5 ml-1" />
-                </td> 
-                <td className="px-4 py-3">
-                  <div className="flex space-x-2">
-                    <button className="p-2 text-red-500 hover:text-red-700">
-                      <Image src={assests.trash} alt="ลบ" className="w-5 h-5 ml-3" />Delete
-                    </button>
-                    <button className="p-2 text-blue-500 hover:text-blue-700">
-                      <Image src={assests.setting} alt="แก้ไข" className="w-5 h-5 ml-2" />Edits
-                    </button>
-                  </div>
-                </td>
-              </tr>
+              <ProductList id={product.id} 
+              name={product.name} 
+              detail={product.detail} 
+              price={product.price} 
+              brand={product.brand}
+              stock={product.stock}/>
             ))}
           </tbody>
         </table>
