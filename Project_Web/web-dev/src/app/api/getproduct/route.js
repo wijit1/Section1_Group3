@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createConnection } from "@/lib/db";
+import { products } from "../../../../assets/assets";
 
 export async function GET(req){
     try{
@@ -9,13 +10,9 @@ export async function GET(req){
         if (rows.length === 0){
             return NextResponse.json({error:"Product not exist "},{status:404});
         }
-        const base64Image = Buffer.from(rows[0].Picture).toString('base64');
-        const imageType = 'image/jpeg';
-
 
         return NextResponse.json(
-            {image:`data:${imageType};base64,${base64Image}`},
-            { headers: { 'Content-Type': 'application/json' } }
+            {products:rows}
         )
     }catch(error){
         console.log(error);

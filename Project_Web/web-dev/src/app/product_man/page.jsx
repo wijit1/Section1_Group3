@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useMemo } from 'react';
 import { assests } from "../../../assets/assets";
 import Link from 'next/link';
 import Image from "next/image";
@@ -10,25 +10,79 @@ import { ShopContext } from '@/context/ShopContext';
 import ProductList from '@/components/ProductList';
 
 export default function ProductMan() {
-  const { search } = useContext(ShopContext);
-  useEffect(()=>{
-    const fetchData = async () =>{
-      const res = await fetch(`/api/`);
+  const { search, setSearch } = useContext(ShopContext);
+  const [dataList, setDataList] = useState([]);
+  // const [images,setImages] = useState([]);
+
+  // const [filterProducts, setFilterProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(`/api/getproduct`);
+
+      if (res.ok) {
+        const data = await res.json();
+        setDataList(data.products)
+      }
     }
-  },[])
 
-  // ข้อมูลตัวอย่างของสินค้า
-  const products = [
-    { id: '001', name: 'Bumper Car Luffy', detail: 'Release in 2025. Limited Edition for One Piece Anniversary', stock: 15, brand: 'Moon Studio', price: 3200 },
-    { id: '002', name: 'Electric Scooter', detail: '2023 Model, Eco-friendly', stock: 8, brand: 'EcoMove', price: 4500 },
-    { id: '003', name: 'Sports Watch', detail: 'Waterproof, GPS enabled', stock: 20, brand: 'TimeMax', price: 2000 },
-  ];
+    fetchData();
+  }, [])
 
-  // ฟิลเตอร์สินค้าโดยอิงจาก search
-  const filteredProducts = products.filter(product =>
-    product.name.toLowerCase().includes(search.toLowerCase()) ||
-    product.detail.toLowerCase().includes(search.toLowerCase())
-  );
+  // useEffect(()=>{
+  //   // console.log(images);
+  //   console.log("This is DataList",dataList);
+
+  //   dataList.forEach((products)=>{
+  //     const base64Image = Buffer.from(products.Picture).toString('base64');
+  //     const imageType = 'image/jpeg';
+  //     const imageData = `data:${imageType};base64,${base64Image}`;
+  //     setImages((prevImages) => [...prevImages, imageData]);
+  //   })
+
+  // },[dataList,setDataList])
+
+  //   const applyFilter = () => {
+  //     let productsCopy = dataList.slice();
+  //     if(search){
+  //       productsCopy = productsCopy.filter(product =>
+  //         product.P_Name.toLowerCase().includes(search.toLowerCase()) ||
+  //         product.Detail.toLowerCase().includes(search.toLowerCase())
+  //       );
+  //     }
+  //     setImages([]);
+  //     productsCopy.forEach((products)=>{
+  //       const base64Image = Buffer.from(products.Picture).toString('base64');
+  //       const imageType = 'image/jpeg';
+  //       const imageData = `data:${imageType};base64,${base64Image}`;
+  //       setImages((prevImages) => [...prevImages, imageData]);
+  //     })
+
+  //     setFilterProducts(productsCopy);
+  // }
+
+  // useEffect(() => {
+  //   applyFilter();
+
+  // }, [search, setSearch,dataList,setDataList])
+
+
+  const filterProducts = useMemo(() => {
+    if (!search) return dataList;
+    return dataList.filter((product) =>
+      product.P_Name.toLowerCase().includes(search.toLowerCase()) ||
+      product.Detail.toLowerCase().includes(search.toLowerCase())
+    );
+  }, [search, dataList]);
+
+  // ประมวลผลรูปภาพโดยการสร้าง base64 images เฉพาะรายการที่กรองแล้ว
+  const images = useMemo(() => {
+    return filterProducts.map((product) => {
+      const base64Image = Buffer.from(product.Picture).toString('base64');
+      return `data:image/jpeg;base64,${base64Image}`;
+    });
+  }, [filterProducts]);
+
 
   return (
     <div>
@@ -43,7 +97,7 @@ export default function ProductMan() {
 
       {/* ใช้ SearchBar ตรงนี้ */}
       <div className="flex justify-between ml-56 pl-4">
-        <SearchBar_Man/>
+        <SearchBar_Man />
         <Link href={'/edit_product'}>
           <button className="font-semibold bg-yellow-500 text-black px-8 py-3 hover:bg-yellow-600 mr-60 rounded-2xl whitespace-nowrap">Add Product</button>
         </Link>
@@ -65,14 +119,42 @@ export default function ProductMan() {
             </tr>
           </thead>
           <tbody>
-            {filteredProducts.map(product => (
-              <ProductList id={product.id} 
-              name={product.name} 
-              detail={product.detail} 
-              price={product.price} 
-              brand={product.brand}
-              stock={product.stock}/>
-            ))}
+
+            {/* {dataList?(
+              <tr>
+                {filterProducts.map((product,index)=>(
+                  <ProductList id={product.P_ID}
+                  name={product.P_Name}
+                  detail={product.Detail}
+                  stock={product.Stock}
+                  brand={product.Brand}
+                  price={product.Price}
+                  image={images[index]}
+                  />
+                ))}
+              </tr>
+            ):null} */}
+            {filterProducts.length > 0 ? (
+              <div>
+                {filterProducts.map((product, index) => (
+                  <ProductList
+                    key={product.P_ID}
+                    id={product.P_ID}
+                    name={product.P_Name}
+                    detail={product.Detail}
+                    stock={product.Stock}
+                    brand={product.Brand}
+                    price={product.Price}
+                    image={images[index]}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className='text-4xl flex justify-center items-center p-10'>
+                Not found
+              </div>
+            )}
+
           </tbody>
         </table>
       </div>

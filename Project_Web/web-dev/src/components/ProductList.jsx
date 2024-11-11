@@ -2,7 +2,7 @@ import { assests } from "../../assets/assets";
 import Image from "next/image";
 
 
-export default function ProductList({id,name,detail,brand,price,stock}) {
+export default function ProductList({id,name,detail,brand,price,stock,image}) {
 
     return (
         <div className="border border-red-500 w-full">
@@ -10,7 +10,8 @@ export default function ProductList({id,name,detail,brand,price,stock}) {
                 <td className="px-4 py-3 text-gray-600 flex gap-5">{id}</td>
                 <td className="px-4 py-3">
                     <div className="flex items-center">
-                        <img src="https://via.placeholder.com/50" alt="Product Image" className="w-12 h-12 rounded" />
+                        <Image src={image} width={50} height={50} alt="Product Image "/>
+                        {/* <img src="https://via.placeholder.com/50" alt="Product Image" className="w-12 h-12 rounded" /> */}
                         <span className="ml-4 w-14 text-gray-700">{name}</span>
                     </div>
                 </td>
