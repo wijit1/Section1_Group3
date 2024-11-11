@@ -61,11 +61,11 @@ export default function ProductMan() {
             <tr>
               <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">ID</th>
               <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Product</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-3/12 pl-72">Detail</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12 ">Detail</th>
               <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Stock</th>
               <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Brand</th>
               <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Price</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12 pl-12">Actions</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12 ml-3 ">Actions</th>
             </tr>
           </thead>
           <tbody>
