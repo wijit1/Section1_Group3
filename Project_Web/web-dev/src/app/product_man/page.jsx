@@ -64,17 +64,17 @@ export default function ProductMan() {
 
       {/* ตารางสินค้า */}
 
-      <div className="overflow-x-auto mt-8 mr-60 ml-60">
-        <table className="w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+      <div className="table-auto mt-8  ml-20 mr-20">
+        <table className="table-auto w-full bg-white border border-gray-200 rounded-lg shadow-lg">
           <thead className="bg-gray-100">
-            <tr className='flex gap-36'>
+            <tr className='flex '>
               <th className="px-4 py-2 text-gray-700 font-medium text-left">ID</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left">Product</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left">Detail</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left">Stock</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left">Brand</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left">Price</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left">Actions</th>
+              <th className="px-4 py-2 pl-40 text-gray-700 font-medium text-left">Product</th>
+              <th className="px-4 py-2 pl-56 text-gray-700 font-medium text-left">Detail</th>
+              <th className="px-4 py-2 pl-60 text-gray-700 font-medium text-left">Stock</th>
+              <th className="px-4 py-2 pl-32 text-gray-700 font-medium text-left">Brand</th>
+              <th className="px-4 py-2 pl-36 text-gray-700 font-medium text-left">Price</th>
+              <th className="px-4 py-2 pl-40 text-gray-700 font-medium text-left">Actions</th>
             </tr>
           </thead>
           <tbody>
