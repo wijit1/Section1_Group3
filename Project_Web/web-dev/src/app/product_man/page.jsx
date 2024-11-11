@@ -59,13 +59,13 @@ export default function ProductMan() {
         <table className="w-full bg-white border border-gray-200 rounded-lg shadow-lg table-fixed">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">ID</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-[3%]">ID</th>
               <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Product</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12 ">Detail</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-2/12 ">Detail</th>
               <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Stock</th>
               <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Brand</th>
               <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Price</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12 ml-3 ">Actions</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-center w-1/12">Actions</th>
             </tr>
           </thead>
           <tbody>

@@ -13,7 +13,7 @@ export default function ProductList({ id, name, detail, brand, price, stock, ima
                 </div>
             </td>
 
-            <td className="py-3 text-gray-600 border border-green-500 w-2/12 break-words">{detail}</td>
+            <td className="py-3 text-gray-600  w-2/12 break-words">{detail}</td>
 
             <td className="px-4 py-3 text-gray-600 w-1/12 pl-9">{stock}</td>
 
@@ -24,18 +24,17 @@ export default function ProductList({ id, name, detail, brand, price, stock, ima
                 <Image src={assests.dollar} alt="coin" className="w-5 h-5 ml-1" />
             </td>
 
-            <td className="px-4 py-3 w-1/12">
-                <div className="flex space-x-2">
-                    <button className="p-2 text-red-500 hover:text-red-700">
-                        <Image src={assests.trash} alt="Delete" className="w-5 h-5 ml-3" />
-                        Delete
-                    </button>
-                    <button className="p-2 text-blue-500 hover:text-blue-700">
-                        <Image src={assests.setting} alt="Edit" className="w-5 h-5 ml-2" />
-                        Edit
-                    </button>
-                </div>
+            <td className="px-4 py-3 w-1/12  text-center ">
+                <button className="p-2 text-red-500 hover:text-red-700 border-blue-900">
+                    <Image src={assests.trash} alt="Delete" className="w-5 h-5 ml-3" />
+                    Delete
+                </button>
+                <button className="p-2 text-blue-500 hover:text-blue-700">
+                    <Image src={assests.setting} alt="Edit" className="w-5 h-5 ml-2" />
+                    Edit
+                </button>
             </td>
+
         </tr>
     );
 }
