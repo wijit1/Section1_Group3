@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useContext, useEffect, useState, useMemo } from 'react';
@@ -9,7 +8,7 @@ import { ShopContext } from '@/context/ShopContext';
 import ProductList from '@/components/ProductList';
 
 export default function ProductMan() {
-  const { search} = useContext(ShopContext);
+  const { search } = useContext(ShopContext);
   const [dataList, setDataList] = useState([]);
 
   useEffect(() => {
@@ -18,13 +17,12 @@ export default function ProductMan() {
 
       if (res.ok) {
         const data = await res.json();
-        setDataList(data.products)
+        setDataList(data.products);
       }
-    }
+    };
 
     fetchData();
-  }, [])
-
+  }, []);
 
   const filterProducts = useMemo(() => {
     if (!search) return dataList;
@@ -34,7 +32,6 @@ export default function ProductMan() {
     );
   }, [search, dataList]);
 
-  // ประมวลผลรูปภาพโดยการสร้าง base64 images เฉพาะรายการที่กรองแล้ว
   const images = useMemo(() => {
     return filterProducts.map((product) => {
       const base64Image = Buffer.from(product.Picture).toString('base64');
@@ -42,19 +39,15 @@ export default function ProductMan() {
     });
   }, [filterProducts]);
 
-
   return (
     <div>
       <div className="flex justify-items-end items-center m-5 pl-60">
         <div className="flex items-center m-5 border border-red-950 w-24 h-14 bg-green-400 rounded-3xl ">
-          <div href="#515515151" className="text-black hover:text-green-800 font-semibold text-lg py-2 px-4 rounded ">←Back</div>
+          <div href="#515515151" className="text-black hover:text-green-800 font-semibold text-lg py-2 px-4 rounded">←Back</div>
         </div>
-        <div className="font-bold text-7xl">
-          Product/Service Management
-        </div>
+        <div className="font-bold text-7xl">Product/Service Management</div>
       </div>
 
-      {/* ใช้ SearchBar ตรงนี้ */}
       <div className="flex justify-between ml-56 pl-4">
         <SearchBar_Man />
         <Link href={'/edit_product'}>
@@ -62,47 +55,42 @@ export default function ProductMan() {
         </Link>
       </div>
 
-      {/* ตารางสินค้า */}
-
-      <div className="table-auto mt-8  ml-20 mr-20">
-        <table className="table-auto w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+      <div className="table-auto mt-8 ml-20 mr-20">
+        <table className="w-full bg-white border border-gray-200 rounded-lg shadow-lg table-fixed">
           <thead className="bg-gray-100">
-            <tr className='flex '>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left">ID</th>
-              <th className="px-4 py-2 pl-40 text-gray-700 font-medium text-left">Product</th>
-              <th className="px-4 py-2 pl-56 text-gray-700 font-medium text-left">Detail</th>
-              <th className="px-4 py-2 pl-60 text-gray-700 font-medium text-left">Stock</th>
-              <th className="px-4 py-2 pl-32 text-gray-700 font-medium text-left">Brand</th>
-              <th className="px-4 py-2 pl-36 text-gray-700 font-medium text-left">Price</th>
-              <th className="px-4 py-2 pl-40 text-gray-700 font-medium text-left">Actions</th>
+            <tr>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">ID</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Product</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-3/12 pl-72">Detail</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Stock</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Brand</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Price</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12 pl-12">Actions</th>
             </tr>
           </thead>
           <tbody>
-
             {filterProducts.length > 0 ? (
-              <div>
-                {filterProducts.map((product, index) => (
-                  <ProductList
-                    key={product.P_ID}
-                    id={product.P_ID}
-                    name={product.P_Name}
-                    detail={product.Detail}
-                    stock={product.Stock}
-                    brand={product.Brand}
-                    price={product.Price}
-                    image={images[index]}
-                  />
-                ))}
-              </div>
+              filterProducts.map((product, index) => (
+                <ProductList
+                  key={product.P_ID}
+                  id={product.P_ID}
+                  name={product.P_Name}
+                  detail={product.Detail}
+                  stock={product.Stock}
+                  brand={product.Brand}
+                  price={product.Price}
+                  image={images[index]}
+                />
+              ))
             ) : (
-              <div className='text-4xl flex justify-center items-center p-10'>
-                Not found
-              </div>
+              <tr>
+                <td colSpan="7" className="text-4xl text-center p-10">Not found</td>
+              </tr>
             )}
-
           </tbody>
         </table>
       </div>
     </div>
   );
 }
+
