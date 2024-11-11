@@ -2,7 +2,6 @@
 'use client';
 
 import React, { useContext, useEffect, useState, useMemo } from 'react';
-import { assests } from "../../../assets/assets";
 import Link from 'next/link';
 import Image from "next/image";
 import { SearchBar_Man } from '@/components/SearchBar_Man';
@@ -10,11 +9,8 @@ import { ShopContext } from '@/context/ShopContext';
 import ProductList from '@/components/ProductList';
 
 export default function ProductMan() {
-  const { search, setSearch } = useContext(ShopContext);
+  const { search} = useContext(ShopContext);
   const [dataList, setDataList] = useState([]);
-  // const [images,setImages] = useState([]);
-
-  // const [filterProducts, setFilterProducts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,43 +24,6 @@ export default function ProductMan() {
 
     fetchData();
   }, [])
-
-  // useEffect(()=>{
-  //   // console.log(images);
-  //   console.log("This is DataList",dataList);
-
-  //   dataList.forEach((products)=>{
-  //     const base64Image = Buffer.from(products.Picture).toString('base64');
-  //     const imageType = 'image/jpeg';
-  //     const imageData = `data:${imageType};base64,${base64Image}`;
-  //     setImages((prevImages) => [...prevImages, imageData]);
-  //   })
-
-  // },[dataList,setDataList])
-
-  //   const applyFilter = () => {
-  //     let productsCopy = dataList.slice();
-  //     if(search){
-  //       productsCopy = productsCopy.filter(product =>
-  //         product.P_Name.toLowerCase().includes(search.toLowerCase()) ||
-  //         product.Detail.toLowerCase().includes(search.toLowerCase())
-  //       );
-  //     }
-  //     setImages([]);
-  //     productsCopy.forEach((products)=>{
-  //       const base64Image = Buffer.from(products.Picture).toString('base64');
-  //       const imageType = 'image/jpeg';
-  //       const imageData = `data:${imageType};base64,${base64Image}`;
-  //       setImages((prevImages) => [...prevImages, imageData]);
-  //     })
-
-  //     setFilterProducts(productsCopy);
-  // }
-
-  // useEffect(() => {
-  //   applyFilter();
-
-  // }, [search, setSearch,dataList,setDataList])
 
 
   const filterProducts = useMemo(() => {
@@ -120,20 +79,6 @@ export default function ProductMan() {
           </thead>
           <tbody>
 
-            {/* {dataList?(
-              <tr>
-                {filterProducts.map((product,index)=>(
-                  <ProductList id={product.P_ID}
-                  name={product.P_Name}
-                  detail={product.Detail}
-                  stock={product.Stock}
-                  brand={product.Brand}
-                  price={product.Price}
-                  image={images[index]}
-                  />
-                ))}
-              </tr>
-            ):null} */}
             {filterProducts.length > 0 ? (
               <div>
                 {filterProducts.map((product, index) => (
