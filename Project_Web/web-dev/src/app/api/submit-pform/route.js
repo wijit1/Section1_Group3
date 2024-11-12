@@ -24,7 +24,7 @@ export async function POST(req){
             'INSERT INTO itemproduct (P_Name,Detail,Stock,Brand,Price,Picture) VALUES (?, ?, ? , ?, ?,?)'
             , [name, detail,stock,brand,price,buffer]);
 
-        return NextResponse.json({result})
+        return NextResponse.json({result,message:"Add product success"})
     
     }catch(error){
         console.log("Error ");
