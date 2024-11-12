@@ -3,7 +3,7 @@
 import { SearchBar } from "@/components/SearchBar"
 import { Category } from "@/components/Category"
 import { Collection } from "@/components/Collection"
-import PriceRangeFilter from "@/components/PriceRangeFilter"
+
 
 export default function search() {
   return (
