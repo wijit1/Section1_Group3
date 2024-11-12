@@ -1,14 +1,13 @@
 import { assests } from "../../../assets/assets";
 import Image from "next/image";
+import BackButton from "@/components/backbutton";
 export default function Add_EditAccount() {
     return (
         <div>
             <div className="max-w-5xl mx-auto">
                 {/* Header */}
                 <div className="flex items-center gap-4 mb-8">
-                    <div className="flex items-center m-5 border border-red-950 w-24 h-14 bg-green-400 rounded-3xl ">
-                        <div href="#515515151" className="text-black hover:text-green-800 font-semibold text-lg py-2 px-4 rounded ">←Back</div>
-                    </div>
+                <BackButton />
                     {/* <button className="bg-green-400 p-2 rounded-lg">
                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

@@ -1,10 +1,11 @@
 import { assests } from "../../../assets/assets";
 import Image from "next/image";
+import BackButton from "@/components/backbutton";
 export default function login() {
     return (
         <div>
-            <div className="flex flex-col items-center m-5 border border-red-950 w-24 bg-green-400 rounded-2xl ml-44">
-                <div href="#515515151" className="text-black hover:text-green-800 font-semibold text-lg py-2 px-4 rounded ">←Back</div>
+            <div className="m-5 ml-44">
+                <BackButton />
             </div>
             {/* Main Content */}
             <div className="flex justify-center items-center h-96 px-5">

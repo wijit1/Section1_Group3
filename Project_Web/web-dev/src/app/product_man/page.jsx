@@ -6,6 +6,7 @@ import Image from "next/image";
 import { SearchBar_Man } from '@/components/SearchBar_Man';
 import { ShopContext } from '@/context/ShopContext';
 import ProductList from '@/components/ProductList';
+import BackButton from '@/components/backbutton';
 
 export default function ProductMan() {
   const { search } = useContext(ShopContext);
@@ -42,8 +43,9 @@ export default function ProductMan() {
   return (
     <div>
       <div className="flex justify-items-end items-center m-5 pl-60">
-        <div className="flex items-center m-5 border border-red-950 w-24 h-14 bg-green-400 rounded-3xl ">
-          <div href="#515515151" className="text-black hover:text-green-800 font-semibold text-lg py-2 px-4 rounded">←Back</div>
+
+        <div className="flex items-center m-5">
+          <BackButton />
         </div>
         <div className="font-bold text-7xl">Product/Service Management</div>
       </div>
