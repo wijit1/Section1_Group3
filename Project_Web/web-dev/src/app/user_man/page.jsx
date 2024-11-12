@@ -6,6 +6,8 @@ import { assests } from "../../../assets/assets";
 import Image from "next/image";
 import { SearchBar_Man } from '@/components/SearchBar_Man';
 import { ShopContext } from '@/context/ShopContext';
+import Link from 'next/link';
+
 export default function User_Man() {
   const { search } = useContext(ShopContext);
 
@@ -38,7 +40,9 @@ export default function User_Man() {
       {/* ใช้ SearchBar ตรงนี้ */}
       <div className="flex justify-between ml-56 pl-4">
         <SearchBar_Man/>
+        <Link href={'/Add_EditAccount'}>
         <button className="font-semibold bg-yellow-500 text-black px-8 py-3 hover:bg-yellow-600 mr-60 rounded-2xl whitespace-nowrap">Add User</button>
+        </Link>
       </div>
 
       {/* ตารางสินค้า */}
