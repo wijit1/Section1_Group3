@@ -8,11 +8,6 @@ export default function Add_EditAccount() {
                 {/* Header */}
                 <div className="flex items-center gap-4 mb-8">
                 <BackButton />
-                    {/* <button className="bg-green-400 p-2 rounded-lg">
-                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                     </svg>
-                 </button> */}
                     <h1 className="text-7xl font-bold mt-1">ADD &amp; Edit Account</h1>
                 </div>
                 {/* Form Container */}
@@ -20,8 +15,6 @@ export default function Add_EditAccount() {
                     {/* Left Column */}
                     <div className="space-y-4">
                         {/* Profile Section */}
-                        {/* <h2 class="text-xl font-semibold">Profile</h2> 
-      <br> Profile แบบนอกกรอบ */}
                         <div className="bg-white p-6 rounded-xl ring-offset-2 ring-2 ring-black">
                             <div className="flex items-center gap-2 mb-6">
                                 <h2 className="text-xl font-semibold">Profile</h2>
@@ -56,8 +49,6 @@ export default function Add_EditAccount() {
                     </div>
                     {/* Right Column */}
                     <div>
-                        {/* <h2 class="text-xl font-semibold">Information</h2>
-      <br> Information แบบนอกกรอบ */}
                         <div className="bg-white p-6 rounded-xl ring-offset-2 ring-2 ring-black">
                             <div className="flex items-center gap-2 mb-6">
                                 <h2 className="text-xl font-semibold">Information</h2>
@@ -67,7 +58,7 @@ export default function Add_EditAccount() {
                                 <div>
                                     <label className="block text-gray-700 mb-2">Email</label>
                                     <div className="relative">
-                                        <input type="email" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 " />
+                                        <input type="email" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 pl-12" />
                                         <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
                                             <Image src={assests.mail} width={25} />
                                         </div>
@@ -76,7 +67,7 @@ export default function Add_EditAccount() {
                                         <br />
                                         <label className="block text-gray-700 mb-2">Address</label>
                                         <div className="relative">
-                                            <input type="text" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                                            <input type="text" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 pl-12" />
                                             <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
                                                 <Image src={assests.address} width={25} />
                                             </div>
@@ -85,7 +76,7 @@ export default function Add_EditAccount() {
                                             <br />
                                             <label className="block text-gray-700 mb-2">Tel</label>
                                             <div className="relative">
-                                                <input type="tel" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                                                <input type="tel" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 pl-12" />
                                                 <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
                                                     <Image src={assests.phone_call} width={25} />
                                                 </div>

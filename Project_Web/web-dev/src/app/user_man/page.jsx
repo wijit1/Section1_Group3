@@ -28,7 +28,7 @@ export default function User_Man() {
 
   return (
     <div>
-      <div className="flex justify-items-end items-center m-5 pl-60">
+      <div className="flex justify-items-end items-center m-5 pl-60 gap-5">
       <BackButton />
         <div className="font-bold text-7xl">
           User Account Management
