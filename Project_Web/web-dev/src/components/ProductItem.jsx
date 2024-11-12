@@ -1,18 +1,30 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { assests } from '../../assets/assets'
 
 
 export const ProductItem = ({ product}) => {
+    const [image,setImage] = useState('');
+
+    const convertImage = () =>{
+        const base64Image = Buffer.from(product.Picture).toString('base64');
+        setImage(`data:image/jpeg;base64,${base64Image}`);
+    };
+
+
     useEffect(()=>{
-        console.log(product);
-        
-    },[product])
+        convertImage();
+    },[])
 
     return (
         <div className="flex flex-col gap-2 px-7 py-8 border-4 border-gray-800 rounded-xl bg-gray-100 hover:text-red-400 hover:underline">
             <div className="w-[248px] h-[248px] bg-red-800">
-                <Image className='w-full h-full' src={assests.Goku} alt={product.Name} />
+
+                {image?(
+                    <Image className='w-full h-full' src={image} alt={product.Name} width={100} height={100} />
+                ):(
+                    <Image className='w-full h-full' src={assests.meow} alt="Image is not found" width={100} height={100} />
+                )}
             </div>
             <div className="text-2xl font-bold">
                 <p className="font-sans">{product.P_Name}</p>
