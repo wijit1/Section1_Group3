@@ -63,13 +63,14 @@ export default function Edit_Product() {
     return (
         <div className="flex flex-col m-auto p-10 mt-10 items-center">
             {/* Title */}
+            <div className="flex items-center m-5 gap-7">  <BackButton />
 
                 <div className="flex  justify-between w-auto border-4 gap-5 border-black p-3 rounded-xl">
                     
                     <Image className="hover:rotate-90 hover:duration-700 duration-500 " src={assests.setting} width={50} height={50}/>
                     <h1 className="text-5xl text-rose-400"> ADD & Edit Product</h1>
                 </div>
-
+                </div>
             <form className="mt-10 w-3/4 flex flex-col justify-center" onSubmit={handleSubmit}>
                 <div className="flex justify-between gap-20 w-full">
                     {/* Description */}
