@@ -4,9 +4,9 @@ import { useEffect, useState,useContext } from "react";
 import { assests } from "../../../assets/assets";
 import Image from "next/image";
 import { toast } from "sonner";
-import UploadImage from "@/components/UploadImage";
 import { ShopContext } from "@/context/ShopContext";
 import BackButton from "@/components/backbutton";
+import UploadImage from "@/components/UploadImage";
 
 export default function Edit_Product() {
     const [name,setName] = useState('');
@@ -153,10 +153,6 @@ export default function Edit_Product() {
                     <button className="bg-blue-300 px-5 py-2 rounded-xl w-32" type="reset">Cancel</button>
                 </div>
             </form>
-
-
-
-
         </div>
     );
 }

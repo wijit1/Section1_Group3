@@ -20,7 +20,7 @@ export async function POST(req){
 
         const db = await createConnection();
         const [result] = await db.query(
-            'INSERT INTO users (name,email,address,tel,birth_date,profile_image) VALUES (?, ?, ? , ?, ?,?)'
+            'INSERT INTO user_acc (name,email,address,tel,birth_date,profile_image) VALUES (?, ?, ? , ?, ?,?)'
             , [name, email,address,tel,birth_date,buffer]);
 
         return NextResponse.json({result,message:"Add user success"})
