@@ -62,6 +62,7 @@ export default function Add_EditAccount() {
                     <h1 className="text-7xl font-bold mt-1">ADD &amp; Edit Account</h1>
                 </div>
                 {/* Form Container */}
+                <form>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Left Column */}
                     <div className="space-y-4">
@@ -154,7 +155,7 @@ export default function Add_EditAccount() {
                     </div>
                    
                 </div>
-
+                </form>
             </div>
         
         </div>
