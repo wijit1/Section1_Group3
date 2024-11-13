@@ -1,13 +1,64 @@
+'use client'
+import { useEffect, useState, useContext } from "react";
 import { assests } from "../../../assets/assets";
 import Image from "next/image";
+import { toast } from "sonner";
+import UploadImage from "@/components/UploadImage";
+import { ShopContext } from "@/context/ShopContext";
 import BackButton from "@/components/backbutton";
 export default function Add_EditAccount() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [address, setAddress] = useState('');
+    const [tel, setTel] = useState('');
+    const [birth_date, setBirth_date] = useState('');
+
+    const { imagefile, setImagefile } = useContext(ShopContext);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('address', address);
+        formData.append('tel', tel);
+        formData.append('birth_date', birth_date);
+        formData.append('image', imagefile);
+        try {
+            const response = await fetch('/api/submit-pform', {
+                method: 'POST',
+                body: formData
+            });
+            if (response.ok) {
+                toast.success('Form submitted successfully')
+                console.log("Form submitted successfully");
+
+            } else {
+                console.log('Error submitting form');
+            }
+        } catch (error) {
+            console.error("Error: ", error);
+
+        }
+        setName('');
+        setEmail('');
+        setAddress('');
+        setTel('');
+        setBirth_date('');
+        setImagefile(null);
+
+    }
+
+    useEffect(() => {
+        console.log(imagefile);
+
+    }, [imagefile, setImagefile])
     return (
         <div>
             <div className="max-w-5xl mx-auto">
                 {/* Header */}
                 <div className="flex items-center gap-4 mb-8">
-                <BackButton />
+                    <BackButton />
                     <h1 className="text-7xl font-bold mt-1">ADD &amp; Edit Account</h1>
                 </div>
                 {/* Form Container */}
@@ -15,6 +66,7 @@ export default function Add_EditAccount() {
                     {/* Left Column */}
                     <div className="space-y-4">
                         {/* Profile Section */}
+
                         <div className="bg-white p-6 rounded-xl ring-offset-2 ring-2 ring-black">
                             <div className="flex items-center gap-2 mb-6">
                                 <h2 className="text-xl font-semibold">Profile</h2>
@@ -37,6 +89,7 @@ export default function Add_EditAccount() {
                                 </div>
                             </div>
                         </div>
+
                         {/* Birth Date Section */}
                         <div className="p-1 rounded-xl">
                             <div className="flex items-center gap-2 mb-6">
@@ -97,8 +150,13 @@ export default function Add_EditAccount() {
                                 </button>
                             </div>
                         </div>
-                    </div></div></div>
+                        
+                    </div>
+                   
+                </div>
 
+            </div>
+        
         </div>
     );
 }
