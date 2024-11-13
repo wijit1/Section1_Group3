@@ -19,6 +19,9 @@ export default function ProductMan() {
       if (res.ok) {
         const data = await res.json();
         setDataList(data.products);
+      }else{
+        console.log("Cannot Get Product from Database");
+        
       }
     };
 
