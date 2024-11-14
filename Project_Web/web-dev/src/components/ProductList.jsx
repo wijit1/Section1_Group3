@@ -1,28 +1,30 @@
+import { toast } from "sonner";
 import { assests } from "../../assets/assets";
 import Image from "next/image";
 
 export default function ProductList({ id, name, detail, brand, price, stock, image }) {
 
-    // const handleDelete = async()=>{
-    //     e.preventDefault();
-    //     try {
-    //         const res = await fetch('/api/getproduct',{
-    //             method:'DELETE',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify({id}),
-    //         })
-    //         if (response.ok) {
-    //             console.log(`Delete ${id} Success`);
-    //         } else {
-    //             console.log('Error Cannot Delete ');
-    //         }
-    //     }catch(error){
-    //         console.log('Error:',error);
+    const handleDelete = async(e)=>{
+        e.preventDefault();
+        try {
+            const res = await fetch('/api/getproduct',{
+                method:'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({id}),
+            })
+            if (response.ok) {
+                toast.success(`Delete ${id} Success`)
+                console.log(`Delete ${id} Success`);
+            } else {
+                console.log('Error Cannot Delete ');
+            }
+        }catch(error){
+            console.log('Error:',error);
             
-    //     }
-    // }
+        }
+    }
     return (
         <tr key={id} className="border-t border-gray-200">
             <td className="px-4 py-3 text-gray-600 w-1/12">{id}</td>
@@ -46,7 +48,7 @@ export default function ProductList({ id, name, detail, brand, price, stock, ima
             </td>
 
             <td className="px-4 py-3 w-1/12  text-center ">
-                <button className="p-2 text-red-500 hover:text-red-700 border-blue-900">
+                <button onClick={handleDelete} className="p-2 text-red-500 hover:text-red-700 border-blue-900">
                     <Image src={assests.trash} alt="Delete" className="w-5 h-5 ml-3" />
                     Delete
                 </button>

@@ -18,19 +18,19 @@ export async function GET(req){
 }
 
 
-// export async function DELETE(req){
-//     const {id} = await res.json();
-//     try{
-//         const db = await createConnection();
-//         const [rows] = await db.execute("DELETE FROM itemproduct WHERE P_ID = ?;",[id]);
-//         if (rows.length === 0){
-//             return NextResponse.json({error:"Product not exist "},{status:404});
-//         }
-//         return NextResponse.json({message:"Delete Product success"})
-//     }
-//     catch(error){
-//         console.log(error);
+export async function DELETE(req){
+    const {id} = await req.json();
+    try{
+        const db = await createConnection();
+        const [rows] = await db.execute("DELETE FROM itemproduct WHERE P_ID = ?;",[id]);
+        if (rows.length === 0){
+            return NextResponse.json({error:"Product not exist "},{status:404});
+        }
+        return NextResponse.json({message:"Delete Product success"})
+    }
+    catch(error){
+        console.log(error);
         
-//     }
-// }
+    }
+}
 
