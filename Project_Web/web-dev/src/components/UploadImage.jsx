@@ -67,7 +67,7 @@ export default function UploadImage() {
                             id="file-upload"
                             type="file"
                             onChange={handleFileChange}
-                            className="hidden"
+                            className=""
                         />
                         {imagefile ? (
                             <div className="flex flex-col items-center justify-center gap-1 ">

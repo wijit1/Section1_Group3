@@ -35,7 +35,7 @@ import phone_call from './phone_call.png'
 import photo_book from './photo_book.png'
 import moodeng from './moodeng.jpg'
 import meow from './meow_Not_Found.jpg'
-
+import iconprofile from './default-avatar-profile-icon-.jpg'
 export const assests = {
     home,
     logoteam,
@@ -58,7 +58,7 @@ export const assests = {
     ,calendar
     ,phone_call
     ,photo_book
-    ,moodeng,meow
+    ,moodeng,meow,iconprofile
 }
 
 

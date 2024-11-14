@@ -4,6 +4,7 @@ import React, { createContext } from 'react'
 import { useState } from 'react';
 
 import { products } from '../../assets/assets';
+import { assests } from '../../assets/assets';
 
 export const ShopContext = createContext();
 
@@ -13,6 +14,7 @@ export const ShopContextProvider = (props) => {
     const maxPrice = 20000;
     const [priceRange, setPriceRange] = useState([minPrice, maxPrice]);
     const [imagefile,setImagefile] = useState(null);
+    const [imageProfile,setImageProfile] = useState(null);
 
     const handleMinPriceInput = (e) => {
         const value = Number(e.target.value);
@@ -32,7 +34,7 @@ export const ShopContextProvider = (props) => {
 
     const value = {
         search, setSearch, products,priceRange,setPriceRange,handleMinPriceInput,handleMaxPriceInput,minPrice,maxPrice
-        ,imagefile,setImagefile
+        ,imagefile,setImagefile,imageProfile,setImageProfile
     };
     return (
         <ShopContext.Provider value={value}>

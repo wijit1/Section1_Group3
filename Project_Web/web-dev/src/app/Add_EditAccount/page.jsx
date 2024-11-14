@@ -6,6 +6,7 @@ import { toast } from "sonner";
 import UploadImage from "@/components/UploadImage";
 import { ShopContext } from "@/context/ShopContext";
 import BackButton from "@/components/backbutton";
+import UploadProfile from "@/components/UploadProfile";
 export default function Add_EditAccount() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -13,7 +14,7 @@ export default function Add_EditAccount() {
     const [tel, setTel] = useState('');
     const [birth_date, setBirth_date] = useState('');
 
-    const { imagefile, setImagefile } = useContext(ShopContext);
+    const { imageProfile, setImageProfile } = useContext(ShopContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -23,7 +24,7 @@ export default function Add_EditAccount() {
         formData.append('address', address);
         formData.append('tel', tel);
         formData.append('birth_date', birth_date);
-        formData.append('image', imagefile);
+        formData.append('image', imageProfile);
         try {
             const response = await fetch('/api/adduser', {
                 method: 'POST',
@@ -45,14 +46,11 @@ export default function Add_EditAccount() {
         setAddress('');
         setTel('');
         setBirth_date('');
-        setImagefile(null);
+        setImageProfile(null);
 
     }
 
-    useEffect(() => {
-        console.log(imagefile);
-
-    }, [imagefile, setImagefile])
+    
     return (
         <div>
             <div className="max-w-5xl mx-auto">
@@ -74,7 +72,7 @@ export default function Add_EditAccount() {
                                     <Image src={assests.user} width={25} />
                                 </div>
                                 <div className="space-y-4">
-                                <UploadImage/>
+                                    <UploadProfile/>
                                     <div className="space-y-4">
                                         <div>
                                             <label className="block text-gray-700 mb-2">Name</label>
