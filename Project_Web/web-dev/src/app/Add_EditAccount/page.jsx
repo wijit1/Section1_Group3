@@ -24,7 +24,7 @@ export default function Add_EditAccount() {
         formData.append('address', address);
         formData.append('tel', tel);
         formData.append('birth_date', birth_date);
-        formData.append('image', imageProfile);
+        formData.append('imageProfile', imageProfile);
         try {
             const response = await fetch('/api/adduser', {
                 method: 'POST',
@@ -33,6 +33,9 @@ export default function Add_EditAccount() {
             if (response.ok) {
                 toast.success('Form submitted successfully')
                 console.log("Form submitted successfully");
+                const data = response.json()
+                console.log(data);
+                
 
             } else {
                 console.log('Error submitting form');
@@ -47,7 +50,6 @@ export default function Add_EditAccount() {
         setTel('');
         setBirth_date('');
         setImageProfile(null);
-
     }
 
     
@@ -90,7 +92,7 @@ export default function Add_EditAccount() {
                                 </div>
                                 <div className="relative">
                                     <input type="date" className="w-full p-3 border border-gray-300 
-                                    rounded-lg ring-offset-2 ring-2 ring-black" onChange={(e)=>setBirth_date(e.target.value)} name="birth_date"/>
+                                    rounded-lg ring-offset-2 ring-2 ring-black" value={birth_date} onChange={(e)=>setBirth_date(e.target.value)} name="birth_date"/>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +108,7 @@ export default function Add_EditAccount() {
                                         <label className="block text-gray-700 mb-2">Email</label>
                                         <div className="relative">
                                             <input type="email" className="w-full p-3 border border-gray-300 rounded-lg 
-                                            focus:outline-none focus:ring-2 focus:ring-blue-500 pl-12" onChange={(e)=>setEmail(e.target.value)} name="email" />
+                                            focus:outline-none focus:ring-2 focus:ring-blue-500 pl-12" value={email} onChange={(e)=>setEmail(e.target.value)} name="email" />
                                             <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
                                                 <Image src={assests.mail} width={25} />
                                             </div>
@@ -116,7 +118,7 @@ export default function Add_EditAccount() {
                                             <label className="block text-gray-700 mb-2">Address</label>
                                             <div className="relative">
                                                 <input type="text" className="w-full p-3 border border-gray-300 rounded-lg 
-                                                focus:outline-none focus:ring-2 focus:ring-blue-500 pl-12" onChange={(e)=>setAddress(e.target.value)} name="address"/>
+                                                focus:outline-none focus:ring-2 focus:ring-blue-500 pl-12" value={address} onChange={(e)=>setAddress(e.target.value)} name="address"/>
                                                 <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
                                                     <Image src={assests.address} width={25} />
                                                 </div>
@@ -126,7 +128,7 @@ export default function Add_EditAccount() {
                                                 <label className="block text-gray-700 mb-2">Tel</label>
                                                 <div className="relative">
                                                     <input type="tel" className="w-full p-3 border border-gray-300 rounded-lg 
-                                                    focus:outline-none focus:ring-2 focus:ring-blue-500 pl-12" nChange={(e)=>setTel(e.target.value)} name="tel" />
+                                                    focus:outline-none focus:ring-2 focus:ring-blue-500 pl-12" value={tel} onChange={(e)=>setTel(e.target.value)} name="tel" />
                                                     <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
                                                         <Image src={assests.phone_call} width={25} />
                                                     </div>

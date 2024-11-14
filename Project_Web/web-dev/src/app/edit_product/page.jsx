@@ -55,10 +55,7 @@ export default function Edit_Product() {
 
     }
 
-    useEffect(()=>{
-        console.log(imagefile);
-        
-    },[imagefile,setImagefile])
+    
 
     return (
         <div className="flex flex-col m-auto p-10 mt-10 items-center">

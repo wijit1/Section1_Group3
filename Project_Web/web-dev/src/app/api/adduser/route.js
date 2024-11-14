@@ -11,7 +11,7 @@ export async function POST(req){
         const address = formData.get('address');
         const tel = formData.get('tel');
         const birth_date = formData.get('birth_date');
-        const image = formData.get('image');
+        const image = formData.get('imageProfile');
         
         // Convert file image to buffer data  
 
@@ -20,7 +20,7 @@ export async function POST(req){
 
         const db = await createConnection();
         const [result] = await db.query(
-            'INSERT INTO user_acc (name,email,address,tel,birth_date,profile_image) VALUES (?, ?, ? , ?, ?,?)'
+            'INSERT INTO user_acc (User_Name,Email,Addrss,Tel,Brith_Date,profile_image) VALUES (?, ?, ? , ?, ?,?)'
             , [name, email,address,tel,birth_date,buffer]);
 
         return NextResponse.json({result,message:"Add user success"})
