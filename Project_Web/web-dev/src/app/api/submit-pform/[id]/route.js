@@ -14,23 +14,17 @@ export async function PUT(req,{params}){
         const brand = formData.get('brand');
         const category = formData.get('category');
 
-        if(image != null){
-            const imageByteData = await image.arrayBuffer();
-            const buffer = Buffer.from(imageByteData);
-            const db = await createConnection();
-            const [result] = await db.query(
-                'UPDATE itemproduct SET P_Name = ? ,Detail = ?, Price = ? , Stock = ? ,Brand = ? , Picture = ? WHERE P_ID = ?  '
-                , [name, detail,price,stock,brand,buffer,id]);
+        
+
+        const imageByteData = await image.arrayBuffer();
+        const buffer = Buffer.from(imageByteData);
+        const db = await createConnection();
+        const [result] = await db.query(
+            'UPDATE itemproduct SET P_Name = ? ,Detail = ?, Price = ? , Stock = ? ,Brand = ? , Picture = ? WHERE P_ID = ?  '
+            , [name, detail,price,stock,brand,buffer,id]);
     
-            return NextResponse.json({result,message:"Update product success"})
-        }else{
-            const db = await createConnection();
-            const [result] = await db.query(
-                'UPDATE itemproduct SET P_Name = ? ,Detail = ?, Price = ? , Stock = ? ,Brand = ? WHERE P_ID = ?'
-                , [name, detail,price,stock,brand,id]);
-    
-            return NextResponse.json({result,message:"Update product success"})
-        }
+        return NextResponse.json({result,message:"Update product success",image})
+
 
     }catch(error){
         console.log("Error ");
