@@ -13,6 +13,7 @@ export default function Add_EditAccount() {
     const [address, setAddress] = useState('');
     const [tel, setTel] = useState('');
     const [birth_date, setBirth_date] = useState('');
+    const [user_password, setUser_password] = useState('');
 
     const { imageProfile, setImageProfile } = useContext(ShopContext);
 
@@ -25,6 +26,7 @@ export default function Add_EditAccount() {
         formData.append('tel', tel);
         formData.append('birth_date', birth_date);
         formData.append('imageProfile', imageProfile);
+        formData.append('user_password',user_password)
         try {
             const response = await fetch('/api/adduser', {
                 method: 'POST',
@@ -50,6 +52,7 @@ export default function Add_EditAccount() {
         setTel('');
         setBirth_date('');
         setImageProfile(null);
+        setUser_password('');
     }
 
     
@@ -80,6 +83,11 @@ export default function Add_EditAccount() {
                                             <label className="block text-gray-700 mb-2">User Name</label>
                                             <input type="text" className="w-full p-3 border border-gray-300 rounded-lg
                                                 focus:outline-none focus:ring-2 focus:ring-blue-500" name="name" value={name} onChange={(e)=>setName(e.target.value)} required />
+                                        </div>
+                                        <div>
+                                            <label className="block text-gray-700 mb-2">Password</label>
+                                            <input type="text" className="w-full p-3 border border-gray-300 rounded-lg
+                                                focus:outline-none focus:ring-2 focus:ring-blue-500" name="user_password" value={user_password} onChange={(e)=>setUser_password(e.target.value)} required />
                                         </div>
                                     </div>
                                 </div>
@@ -141,11 +149,11 @@ export default function Add_EditAccount() {
                                 <br />
                                 <br />
                                 <div className="flex justify-end gap-4 mt-40">
-                                    <button className="px-8 py-3 bg-red-400 text-black rounded-lg hover:bg-red-500 transition-colors">
+                                    <button type="reset" className="px-8 py-3 bg-red-400 text-black rounded-lg hover:bg-red-500 transition-colors">
                                         Clear
                                     </button>
-                                    <button className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
-                                        Add Product
+                                    <button type="submit" className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+                                        Add User
                                     </button>
                                 </div>
                             </div>
