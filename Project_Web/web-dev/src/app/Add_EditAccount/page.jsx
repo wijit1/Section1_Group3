@@ -77,7 +77,7 @@ export default function Add_EditAccount() {
                                     <UploadProfile/>
                                     <div className="space-y-4">
                                         <div>
-                                            <label className="block text-gray-700 mb-2">Name</label>
+                                            <label className="block text-gray-700 mb-2">User Name</label>
                                             <input type="text" className="w-full p-3 border border-gray-300 rounded-lg
                                                 focus:outline-none focus:ring-2 focus:ring-blue-500" name="name" value={name} onChange={(e)=>setName(e.target.value)} required />
                                         </div>
