@@ -14,7 +14,7 @@ export default function ProductList({ id, name, detail, brand, price, stock, ima
                 },
                 body: JSON.stringify({id}),
             })
-            if (response.ok) {
+            if (res.ok) {
                 toast.success(`Delete ${id} Success`)
                 console.log(`Delete ${id} Success`);
             } else {

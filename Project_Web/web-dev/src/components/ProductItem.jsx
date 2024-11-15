@@ -2,7 +2,7 @@
 import React, { useMemo } from 'react'
 import Image from 'next/image'
 import { assests } from '../../assets/assets'
-
+import Link from 'next/link'
 
 export const ProductItem = ({product}) => {
     
@@ -15,11 +15,11 @@ export const ProductItem = ({product}) => {
     }, [product.Picture]);
 
     return (
-        <div className="flex flex-col cursor-pointer gap-2 px-7 py-8 border-4 border-gray-800 rounded-xl bg-gray-100 hover:text-red-400 hover:underline">
+        <Link href={`/detail_product/${product.P_ID}`} className="flex flex-col cursor-pointer gap-2 px-7 py-8 border-4 border-gray-800 rounded-xl bg-gray-100 hover:text-red-400 hover:underline">
             <div className="w-[248px] h-[248px] bg-red-800">
 
                 {image?(
-                    <Image className='w-full h-full' src={image} alt={`This is Image product: ${product.P_Name}`} width={100} height={100} />
+                    <img className='w-full h-full' src={image} alt={`This is Image product: ${product.P_Name}`} />
                 ):(
                     <Image className='w-full h-full' src={assests.meow}  alt="Image is not found" width={100} height={100} />
                 )}
@@ -34,6 +34,6 @@ export const ProductItem = ({product}) => {
                 <Image src={assests.coin} width={40} height={40} alt="coin" class ="w-7 h-7" />
                 <p className="text-3xl font-mono ml-2">{product.Price}</p>
             </div>
-        </div>
+        </Link>
     )
 }
