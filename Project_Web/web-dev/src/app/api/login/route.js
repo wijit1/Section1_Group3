@@ -1,37 +1,39 @@
-import db from '@/lib/db';
+import { createConnection } from '@/lib/db';
 import bcrypt from 'bcryptjs';
+import { NextResponse } from 'next/server';
 
-export default async function handler(req, res) {
-    if (req.method !== 'POST') {
-        return res.status(405).json({ message: 'Method not allowed' });
-    }
-
-    const { username, password } = req.body;
-
-    if (!username || !password) {
-        return res.status(400).json({ message: 'Please provide username and password' });
-    }
-
+export async function POST(req) {
     try {
-        // ดึงข้อมูลผู้ใช้จากฐานข้อมูล
+        const body = await req.json();
+        const { username, password } = body;
+
+        if (!username || !password) {
+            return NextResponse.json({ message: 'Please provide username and password' }, { status: 400 });
+        }
+
+        const db = await createConnection();
+
         const [rows] = await db.query('SELECT * FROM user_acc WHERE User_Name = ?', [username]);
 
         if (rows.length === 0) {
-            return res.status(401).json({ message: 'User not found' });
+            return NextResponse.json({ message: 'User not found' }, { status: 401 });
         }
 
         const user = rows[0];
 
-        // ตรวจสอบรหัสผ่าน
-        const isMatch = await bcrypt.compare(password, user.User_password);
-
+        // ตรวจสอบรหัสผ่าน เพิ่ม .trim() ในการตรวจสอบ user.User_password เพื่อแก้ปัญหาช่องว่างที่อาจถูกเพิ่มโดยไม่ได้ตั้งใจในฐานข้อมูล
+        const isMatch = await bcrypt.compare(password, user.User_password.trim());
         if (!isMatch) {
-            return res.status(401).json({ message: 'Incorrect password' });
+            return NextResponse.json({ message: 'Incorrect password' }, { status: 401 });
         }
 
-        // หากเข้าสู่ระบบสำเร็จ
-        res.status(200).json({ message: 'Login successful', user: { id: user.User_ID, username: user.User_Name } });
+        return NextResponse.json({
+            message: 'Login successful',
+            user: { id: user.User_ID, username: user.User_Name }
+        }, { status: 200 });
+
     } catch (error) {
-        res.status(500).json({ message: 'Internal server error', error: error.message });
+        console.error("Error in POST /api/login:", error);
+        return NextResponse.json({ message: 'Internal server error', error: error.message }, { status: 500 });
     }
 }
