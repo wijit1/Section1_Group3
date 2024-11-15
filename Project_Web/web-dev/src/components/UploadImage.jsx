@@ -39,13 +39,12 @@ export default function UploadImage() {
 
 
     useEffect(() => {
-        console.log(imagefile);
         if (imagefile) {
             setUrlImage(URL.createObjectURL(imagefile))
         }
     }, [imagefile, setImagefile])
 
-    return (
+    return ( 
         <div>
             <div className="flex items-center justify-start">
                 <h1 className="text-3xl">Product Image</h1>
@@ -85,5 +84,5 @@ export default function UploadImage() {
                 </div>
             </div>
         </div>
-    );
+    )
 }
