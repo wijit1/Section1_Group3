@@ -5,15 +5,17 @@ import Image from 'next/image'
 import PriceRangeFilter from './PriceRangeFilter';
 
 export const Category = () => {
+
   /* ตั้งไว้ยังไม่โชว์ถ้าไม่กด */
   const [isCategoryOpen1, setIsCategoryOpen1] = useState(false)
   const [isCategoryOpen2, setIsCategoryOpen2] = useState(false)
+  
 
   const toggleCategory1 = () => setIsCategoryOpen1(!isCategoryOpen1)
   const toggleCategory2 = () => setIsCategoryOpen2(!isCategoryOpen2)
 
   return (
-    <div className='flex flex-col min-w-72'>
+    <div className='flex flex-col min-w-72 '>
       <p className='my-2 text-xl flex items-center cursor-pointer gap-2'>FILTERS</p>
 
       {/* First Category Section */}
@@ -27,14 +29,17 @@ export const Category = () => {
         />
       </div>
       {isCategoryOpen1 && (
-        <div className="p-3 border border-t-0 border-gray-300 bg-yellow-50">
-          <p class="hover:text-red-400 hover:underline">Super Sale 2024</p>
-          <p class="hover:text-red-400 hover:underline">New Release</p>
-          <p class="hover:text-red-400 hover:underline">Premium Super Exclusive</p>
+        <div className='relative'>
+          <div className="p-3 absolute w-full border border-t-0 border-gray-300 bg-yellow-50">
+            <p class="hover:text-red-400 hover:underline cursor-pointer">Super Sale 2024</p>
+            <p class="hover:text-red-400 hover:underline cursor-pointer">New Release</p>
+            <p class="hover:text-red-400 hover:underline cursor-pointer">Premium Super Exclusive</p>
+          </div>
         </div>
       )}
 
       {/* Second Category Section */}
+  
       <div onClick={toggleCategory2} className='flex items-center justify-between border border-gray-300 bg-yellow-100 p-3 mt-6 cursor-pointer'>
         <p className='flex mb-3 text-2xl items-center'>Brand</p>
         <Image
@@ -44,13 +49,15 @@ export const Category = () => {
           height={30}
         />
       </div>
+
       {isCategoryOpen2 && (
-        <div className="p-3 border border-t-0 border-gray-300 bg-yellow-50 ">
-          <p class="hover:text-red-400 hover:underline">Brand A</p>
-          <p class="hover:text-red-400 hover:underline">Brand B</p>
-          <p class="hover:text-red-400 hover:underline">Brand C</p>
+        <div className='relative'>
+          <div className="p-3 absolute w-full border border-t-0 border-gray-300 bg-yellow-50 ">
+            <p class="hover:text-red-400 hover:underline cursor-pointer">Brand A</p>
+            <p class="hover:text-red-400 hover:underline cursor-pointer">Brand B</p>
+            <p class="hover:text-red-400 hover:underline cursor-pointer">Brand C</p>
+          </div>
         </div>
-        
       )}
       <div class="mt-6">
       <PriceRangeFilter/>

@@ -34,7 +34,8 @@ import calendar from './calendar.png'
 import phone_call from './phone_call.png' 
 import photo_book from './photo_book.png'
 import moodeng from './moodeng.jpg'
-
+import meow from './meow_Not_Found.jpg'
+import iconprofile from './default-avatar-profile-icon-.jpg'
 export const assests = {
     home,
     logoteam,
@@ -57,7 +58,7 @@ export const assests = {
     ,calendar
     ,phone_call
     ,photo_book
-    ,moodeng
+    ,moodeng,meow,iconprofile
 }
 
 
@@ -67,7 +68,7 @@ export const products= [
         ID : "0001",
         Name : "luffy1",
         Detail : "modle luffy gear1",
-        Price : 1000,
+        Price : 2500,
         Picture : [p1],
         Brand : "naruto",
         Category : "yaimak",
@@ -77,7 +78,7 @@ export const products= [
         ID : "0002",
         Name : "luffy2",
         Detail : "modle luffy gear2",
-        Price : 1000,
+        Price : 10000,
         Picture : [p2],
         Brand : "naruto",
         Category : "yaimak",
@@ -87,7 +88,7 @@ export const products= [
         ID : "0003",
         Name : "luffy3",
         Detail : "modle luffy gear3",
-        Price : 1000,
+        Price : 5000,
         Picture : [p3],
         Brand : "naruto",
         Category : "yaimak",
@@ -97,7 +98,7 @@ export const products= [
         ID : "0004",
         Name : "luffy4",
         Detail : "modle luffy gear4",
-        Price : 1000,
+        Price : 3600,
         Picture : [p4],
         Brand : "naruto",
         Category : "yaimak",

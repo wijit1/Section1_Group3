@@ -1,26 +1,11 @@
 'use client'
-import React, { useState } from 'react';
+import { ShopContext } from '@/context/ShopContext';
+import React, { useContext, useState } from 'react';
 
-const PriceRangeFilter = ({ onSearch, maxPrice = 20000, minPrice = 0 }) => {
-  const [priceRange, setPriceRange] = useState([minPrice, maxPrice]);
+const PriceRangeFilter = () => {
 
-  const handleMinPriceInput = (e) => {
-    const value = Number(e.target.value);
-    if (value >= minPrice && value <= priceRange[1]) {
-      setPriceRange([value, priceRange[1]]);
-    }
-  };
+  const {priceRange,setPriceRange,handleMaxPriceInput,handleMinPriceInput,minPrice,maxPrice} = useContext(ShopContext); 
 
-  const handleMaxPriceInput = (e) => {
-    const value = Number(e.target.value);
-    if (value <= maxPrice && value >= priceRange[0]) {
-      setPriceRange([priceRange[0], value]);
-    }
-  };
-
-  const handleSearch = () => {
-    onSearch(priceRange[0], priceRange[1]);
-  };
 
   return (
     <div className="w-full max-w-md space-y-4 p-4 rounded-lg border bg-white">
@@ -67,12 +52,12 @@ const PriceRangeFilter = ({ onSearch, maxPrice = 20000, minPrice = 0 }) => {
         </div>
 
         {/* ปุ่มค้นหา */}
-        <button 
+        {/* <button 
           onClick={handleSearch}
           className="w-full bg-yellow-300 hover:bg-yellow-300 text-white py-2 rounded-md"
         >
           ค้นหา
-        </button>
+        </button> */}
       </div>
     </div>
   );
