@@ -22,7 +22,7 @@ export default function Navbar() {
                     <Link href={'/team'}>
                         <div className="flex flex-col items-center gap-1 cursor-pointer hover:text-red-400 hover:underline">
                             <Image src={assests.teamIcon} width={40} height={40} alt='Team Icon' />
-                            <p>Teampage</p>
+                            <p>About Us</p>
                         </div>
                     </Link>
                     <Link href={'/product_man'}>
