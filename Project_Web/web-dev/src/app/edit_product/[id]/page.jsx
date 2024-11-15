@@ -52,7 +52,7 @@ export default function Edit_Product({ params }) {
         }
     },[product,setProduct])
 
-    const handleSubmit = async (e) =>{
+    const handleUpdate = async (e) =>{
         e.preventDefault();
         const formData = new FormData();
         formData.append('name',name);
@@ -63,13 +63,14 @@ export default function Edit_Product({ params }) {
         formData.append('category',category);
         formData.append('image',imagefile);
         try {
-            const response = await fetch('/api/submit-pform',{
-                method: 'POST',
+            const response = await fetch(`/api/submit-pform/${id}`,{
+                method: 'PUT',
                 body:formData
             });
             if (response.ok){
-                toast.success('Form submitted successfully')
-                console.log("Form submitted successfully");
+                toast.success('Update Product successfully')
+                const data = await response.json()
+                console.log(data);
 
             }else {
                 console.log('Error submitting form');
@@ -101,7 +102,7 @@ export default function Edit_Product({ params }) {
                     <h1 className="text-5xl text-rose-400"> ADD & Edit Product</h1>
                 </div>
                 </div>
-            <form className="mt-10 w-3/4 flex flex-col justify-center" onSubmit={handleSubmit}>
+            <form className="mt-10 w-3/4 flex flex-col justify-center" onSubmit={handleUpdate}>
                 <div className="flex justify-between gap-20 w-full">
                     {/* Description */}
                     <div className="flex flex-col gap-3 w-1/2">
@@ -179,7 +180,7 @@ export default function Edit_Product({ params }) {
                 </div>
 
                 <div className="flex justify-end items-end gap-14 ml-[1000px] mt-24">
-                    <button className="bg-red-300 px-5 py-2 rounded-xl w-32" type="submit">Update</button>
+                    <button onClick={handleUpdate} className="bg-red-300 px-5 py-2 rounded-xl w-32" type="submit">Update</button>
                     <button className="bg-blue-300 px-5 py-2 rounded-xl w-32" type="reset">Cancel</button>
                 </div>
             </form>

@@ -1,18 +1,19 @@
 import { toast } from "sonner";
 import { assests } from "../../assets/assets";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ProductList({ id, name, detail, brand, price, stock, image }) {
 
-    const handleDelete = async(e)=>{
+    const handleDelete = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch('/api/getproduct',{
-                method:'DELETE',
+            const res = await fetch('/api/getproduct', {
+                method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({id}),
+                body: JSON.stringify({ id }),
             })
             if (res.ok) {
                 toast.success(`Delete ${id} Success`)
@@ -20,9 +21,9 @@ export default function ProductList({ id, name, detail, brand, price, stock, ima
             } else {
                 console.log('Error Cannot Delete ');
             }
-        }catch(error){
-            console.log('Error:',error);
-            
+        } catch (error) {
+            console.log('Error:', error);
+
         }
     }
     return (
@@ -52,9 +53,13 @@ export default function ProductList({ id, name, detail, brand, price, stock, ima
                     <Image src={assests.trash} alt="Delete" className="w-5 h-5 ml-3" />
                     Delete
                 </button>
+
                 <button className="p-2 text-blue-500 hover:text-blue-700">
-                    <Image src={assests.setting} alt="Edit" className="w-5 h-5 ml-2" />
-                    Edit
+                    <Link href={`/edit_product/${id}`}>
+
+                        < Image src={assests.setting} alt="Edit" className="w-5 h-5 ml-2" />
+                        Edit
+                    </Link>
                 </button>
             </td>
 
