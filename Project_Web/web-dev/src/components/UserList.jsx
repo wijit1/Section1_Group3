@@ -15,11 +15,11 @@ export default function UserList({ id, name, Address, Email, Tel, bd, image }) {
 
             <td className="py-3 text-gray-600  w-2/12 break-words">{Address}</td>
 
-            <td className="px-4 py-3 text-gray-600 w-1/12 pl-9">{Email}</td>
+            <td className="px-4 py-3 text-gray-600 w-1/12 ">{Email}</td>
 
             <td className="px-4 py-3 text-gray-600 w-1/12">{Tel}</td>
 
-            <td className="px-4 py-3 text-gray-600 flex items-center w-1/12">
+            <td className="px-4 py-3 text-gray-600  items-center w-1/12 ">
                 {bd}
             </td>
 
