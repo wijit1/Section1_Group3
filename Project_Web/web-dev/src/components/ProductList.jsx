@@ -16,10 +16,9 @@ export default function ProductList({ id, name, detail, brand, price, stock, ima
                 body: JSON.stringify({ id }),
             })
             if (res.ok) {
-                toast.success(`Delete ${id} Success`)
-                console.log(`Delete ${id} Success`);
+                toast.success(`Delete User ID ${id} Success`)
             } else {
-                console.log('Error Cannot Delete ');
+                toast.error(`Error Cannot Delete User ID ${id} `)
             }
         } catch (error) {
             console.log('Error:', error);
@@ -56,7 +55,6 @@ export default function ProductList({ id, name, detail, brand, price, stock, ima
 
                 <button className="p-2 text-blue-500 hover:text-blue-700">
                     <Link href={`/edit_product/${id}`}>
-
                         < Image src={assests.setting} alt="Edit" className="w-5 h-5 ml-2" />
                         Edit
                     </Link>

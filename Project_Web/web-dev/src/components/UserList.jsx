@@ -1,7 +1,32 @@
 import { assests } from "../../assets/assets";
 import Image from "next/image";
+import { toast } from "sonner";
+import Link from "next/link";
 
 export default function UserList({ id, name, Address, Email, Tel, bd, image }) {
+
+    const handleDelete = async (e)=>{
+        e.preventDefault();
+        try {
+            const res = await fetch('/api/getuser', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id }),
+            })
+            if (res.ok) {
+                toast.success(`Delete ${id} user Success`)
+                console.log(`Delete ${id} user Success`);
+            } else {
+                console.log('Error Cannot Delete ');
+            }
+        } catch (error) {
+            console.log('Error:', error);
+
+        }
+    }
+
     return (
         <tr key={id} className="border-t border-gray-200">
             <td className="px-4 py-3 text-gray-600 w-1/12">{id}</td>
@@ -24,13 +49,16 @@ export default function UserList({ id, name, Address, Email, Tel, bd, image }) {
             </td>
 
             <td className="px-4 py-3 w-1/12  text-center ">
-                <button className="p-2 text-red-500 hover:text-red-700 border-blue-900">
+                <button onClick={handleDelete} className="p-2 text-red-500 hover:text-red-700 border-blue-900">
                     <Image src={assests.trash} alt="Delete" className="w-5 h-5 ml-3" />
                     Delete
                 </button>
+
                 <button className="p-2 text-blue-500 hover:text-blue-700">
-                    <Image src={assests.setting} alt="Edit" className="w-5 h-5 ml-2" />
-                    Edit
+                    <Link href={`Add_EditAccount/${id}`}>
+                        <Image src={assests.setting} alt="Edit" className="w-5 h-5 ml-2" />
+                        Edit
+                    </Link>
                 </button>
             </td>
 

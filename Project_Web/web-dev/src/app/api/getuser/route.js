@@ -17,3 +17,20 @@ export async function GET(req){
         console.log(error);
     }
 }
+
+
+export async function DELETE(req){
+    const {id} = await req.json();
+    try{
+        const db = await createConnection();
+        const [rows] = await db.execute("DELETE FROM user_acc WHERE User_ID = ?;",[id]);
+        if (rows.length === 0){
+            return NextResponse.json({error:"User not exist "},{status:404});
+        }
+        return NextResponse.json({message:"Delete Product success"})
+    }
+    catch(error){
+        console.log(error);
+        
+    }
+}
