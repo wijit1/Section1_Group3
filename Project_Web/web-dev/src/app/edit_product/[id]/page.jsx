@@ -62,9 +62,6 @@ export default function Edit_Product({ params }) {
         formData.append('stock',stock);
         formData.append('brand',brand);
         formData.append('category',category);
-        if(imagefile){
-            formData.append('IsImage',true);
-        }
         formData.append('image',imagefile);
         try {
             const response = await fetch(`/api/submit-pform/${id}`,{

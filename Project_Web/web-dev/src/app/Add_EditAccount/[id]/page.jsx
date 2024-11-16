@@ -20,24 +20,23 @@ export default function Add_EditAccount({ params }) {
     const [user_password, setUser_password] = useState('');
     const { imageProfile, setImageProfile } = useContext(ShopContext);
 
-    const handleSubmit = async (e) => {
+    const handleUpdate = async (e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('name', name);
         formData.append('email', email);
         formData.append('address', address);
-        formData.append('tel', tel);
+        formData.append('tel',tel);
         formData.append('birth_date', birth_date);
         formData.append('imageProfile', imageProfile);
         formData.append('user_password',user_password)
         try {
-            const response = await fetch('/api/adduser', {
-                method: 'POST',
+            const response = await fetch(`/api/adduser/${id}`, {
+                method: 'PUT',
                 body: formData
             });
             if (response.ok) {
-                toast.success('Form submitted successfully')
-                console.log("Form submitted successfully");
+                toast.success('Form Update user successfully')
                 const data = response.json()
                 console.log(data);
                 
@@ -73,6 +72,7 @@ export default function Add_EditAccount({ params }) {
         fetchData();
     },[])
 
+
     useEffect(()=>{
         if(user){
             setName(user.User_Name);
@@ -80,7 +80,7 @@ export default function Add_EditAccount({ params }) {
             setAddress(user.Addrss);
             setTel(user.Tel);
             setBirth_date(user.Brith_Date);
-            setUser_password(user.password);
+            setUser_password(user.User_password);
         }
     },[user,setUser])
     
@@ -93,7 +93,7 @@ export default function Add_EditAccount({ params }) {
                     <h1 className="text-7xl font-bold mt-1">ADD &amp; Edit Account</h1>
                 </div>
                 {/* Form Container */}
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleUpdate}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Left Column */}
                         <div className="space-y-4">
