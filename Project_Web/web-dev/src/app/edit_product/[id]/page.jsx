@@ -22,7 +22,7 @@ export default function Edit_Product({ params }) {
     const [product,setProduct] = useState(null);
     const { imagefile ,setImagefile } = useContext(ShopContext); 
 
-
+    
     const fetchData = async ()=>{
         const res = await fetch(`/api/getproduct_id/${id}`);
         if (res.ok) {
@@ -95,7 +95,7 @@ export default function Edit_Product({ params }) {
     return (product?(
         <div className="flex flex-col m-auto p-10 mt-10 items-center">
             {/* Title */}
-            <div className="flex items-center m-5 gap-7">  <BackButton />
+            <div className="flex items-center m-5 gap-7">  <BackButton/>
 
                 <div className="flex  justify-between w-auto border-4 gap-5 border-black p-3 rounded-xl">
                     

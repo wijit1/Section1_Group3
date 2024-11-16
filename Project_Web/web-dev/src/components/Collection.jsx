@@ -8,15 +8,26 @@ export const Collection = () => {
     const { search, setSearch,priceRange,setPriceRange} = useContext(ShopContext);
     const [filterProducts, setFilterProducts] = useState([]);
     const [dataList,setDataList] = useState([]);
+    const {category,brand} = useContext(ShopContext);
 
-
+    
     const applyFilter = () => {
         let productsCopy = dataList.slice();
         if(search){
             productsCopy = productsCopy.filter(item => item.P_Name.toLowerCase().includes(search.toLowerCase()))
         }
 
+        if(category != "All"){
+            productsCopy = productsCopy.filter((item)=>item.Category == category)
+        }
+
+        if(brand){
+            productsCopy = productsCopy.filter((item)=> item.Brand == brand)
+        }
+
         productsCopy = productsCopy.filter((item)=> item.Price >= priceRange[0] && item.Price <= priceRange[1])
+
+
 
         setFilterProducts(productsCopy);
     }

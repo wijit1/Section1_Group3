@@ -1,15 +1,16 @@
 "use client"; // Add this line at the top
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { assests } from '../../assets/assets'
 import Image from 'next/image'
 import PriceRangeFilter from './PriceRangeFilter';
+import { ShopContext } from '@/context/ShopContext';
 
 export const Category = () => {
 
   /* ตั้งไว้ยังไม่โชว์ถ้าไม่กด */
   const [isCategoryOpen1, setIsCategoryOpen1] = useState(false)
   const [isCategoryOpen2, setIsCategoryOpen2] = useState(false)
-  
+  const {setCategory,setBrand} = useContext(ShopContext);
 
   const toggleCategory1 = () => setIsCategoryOpen1(!isCategoryOpen1)
   const toggleCategory2 = () => setIsCategoryOpen2(!isCategoryOpen2)
@@ -31,9 +32,9 @@ export const Category = () => {
       {isCategoryOpen1 && (
         <div className='relative'>
           <div className="p-3 absolute w-full border border-t-0 border-gray-300 bg-yellow-50">
-            <p class="hover:text-red-400 hover:underline cursor-pointer">Super Sale 2024</p>
-            <p class="hover:text-red-400 hover:underline cursor-pointer">New Release</p>
-            <p class="hover:text-red-400 hover:underline cursor-pointer">Premium Super Exclusive</p>
+            <p onClick={(e)=>setCategory('Super Sale 2024')} class="hover:text-red-400 hover:underline cursor-pointer">Super Sale 2024</p>
+            <p onClick={(e)=>setCategory('New Release')} class="hover:text-red-400 hover:underline cursor-pointer">New Release</p>
+            <p onClick={(e)=>setCategory('Premium Super Exclusive')} class="hover:text-red-400 hover:underline cursor-pointer">Premium Super Exclusive</p>
           </div>
         </div>
       )}
@@ -53,9 +54,9 @@ export const Category = () => {
       {isCategoryOpen2 && (
         <div className='relative'>
           <div className="p-3 absolute w-full border border-t-0 border-gray-300 bg-yellow-50 ">
-            <p class="hover:text-red-400 hover:underline cursor-pointer">Brand A</p>
-            <p class="hover:text-red-400 hover:underline cursor-pointer">Brand B</p>
-            <p class="hover:text-red-400 hover:underline cursor-pointer">Brand C</p>
+            <p onClick={(e)=>setBrand("Brand A")}  class="hover:text-red-400 hover:underline cursor-pointer">Brand A</p>
+            <p onClick={(e)=>setBrand("Brand B")}  class="hover:text-red-400 hover:underline cursor-pointer">Brand B</p>
+            <p onClick={(e)=>setBrand("Brand C")} class="hover:text-red-400 hover:underline cursor-pointer">Brand C</p>
           </div>
         </div>
       )}

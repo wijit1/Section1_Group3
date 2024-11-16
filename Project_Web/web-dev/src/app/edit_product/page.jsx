@@ -123,11 +123,12 @@ export default function Edit_Product() {
                             <div className="flex flex-col gap-3">
                                 <p className="text-gray-400">Category</p>
                                 <select value={category} onChange={(e)=>setCategory(e.target.value)} className="w-full px-5 py-2" name="category">
-                                    <option value="all">a</option>
-                                    <option value="b">b</option>
-                                    <option value="c">c</option>
-                                    <option value="d">d</option>
+                                    <option value="All">All</option>
+                                    <option value="Super Sale 2024">Super Sale 2024</option>
+                                    <option value="New Release">New Release</option>
+                                    <option value="Premium Super Exclusive">Premium Super Exclusive</option>
                                 </select>
+                                
                             </div>
                         </div>
                     </div>
