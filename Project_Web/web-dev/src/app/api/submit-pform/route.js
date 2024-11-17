@@ -21,8 +21,8 @@ export async function POST(req){
 
         const db = await createConnection();
         const [result] = await db.query(
-            'INSERT INTO itemproduct (P_Name,Detail,Stock,Brand,Price,Picture) VALUES (?, ?, ? , ?, ?,?)'
-            , [name, detail,stock,brand,price,buffer]);
+            'INSERT INTO itemproduct (P_Name,Detail,Stock,Brand,Price,Picture,Category) VALUES (?, ?, ? , ?, ?,?,?)'
+            , [name, detail,stock,brand,price,buffer,category]);
 
         return NextResponse.json({result,message:"Add product success"})
     

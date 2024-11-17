@@ -8,7 +8,7 @@ export const Collection = () => {
     const { search, setSearch,priceRange,setPriceRange} = useContext(ShopContext);
     const [filterProducts, setFilterProducts] = useState([]);
     const [dataList,setDataList] = useState([]);
-    const {category,brand} = useContext(ShopContext);
+    const {category,setCategory,brand} = useContext(ShopContext);
 
     
     const applyFilter = () => {
@@ -21,10 +21,11 @@ export const Collection = () => {
             productsCopy = productsCopy.filter((item)=>item.Category == category)
         }
 
-        if(brand){
-            productsCopy = productsCopy.filter((item)=> item.Brand == brand)
-        }
+        // if(brand){
+        //     productsCopy = productsCopy.filter((item)=> item.Brand == brand)
+        // }
 
+        
         productsCopy = productsCopy.filter((item)=> item.Price >= priceRange[0] && item.Price <= priceRange[1])
 
 
@@ -38,6 +39,8 @@ export const Collection = () => {
     
             if (res.ok) {
                 const data = await res.json();
+                console.log(data);
+                
                 setDataList(data.products)
             }
         }
@@ -48,9 +51,7 @@ export const Collection = () => {
 
     useEffect(() => {
         applyFilter();
-        console.log(filterProducts);
-
-    }, [search, setSearch ,priceRange,setPriceRange,dataList,setDataList])
+    }, [search, setSearch ,priceRange,setPriceRange,dataList,setDataList,category,])
     
 
 

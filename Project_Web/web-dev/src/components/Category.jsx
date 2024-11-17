@@ -32,6 +32,7 @@ export const Category = () => {
       {isCategoryOpen1 && (
         <div className='relative'>
           <div className="p-3 absolute w-full border border-t-0 border-gray-300 bg-yellow-50">
+            <p onClick={(e)=>setCategory('All')} class="hover:text-red-400 hover:underline cursor-pointer">All</p>
             <p onClick={(e)=>setCategory('Super Sale 2024')} class="hover:text-red-400 hover:underline cursor-pointer">Super Sale 2024</p>
             <p onClick={(e)=>setCategory('New Release')} class="hover:text-red-400 hover:underline cursor-pointer">New Release</p>
             <p onClick={(e)=>setCategory('Premium Super Exclusive')} class="hover:text-red-400 hover:underline cursor-pointer">Premium Super Exclusive</p>
@@ -39,7 +40,7 @@ export const Category = () => {
         </div>
       )}
 
-      {/* Second Category Section */}
+      {/* Second Brand  Section */}
   
       <div onClick={toggleCategory2} className='flex items-center justify-between border border-gray-300 bg-yellow-100 p-3 mt-6 cursor-pointer'>
         <p className='flex mb-3 text-2xl items-center'>Brand</p>
@@ -48,6 +49,7 @@ export const Category = () => {
           src={assests.play}
           width={30}
           height={30}
+          alt='This is Branding search'
         />
       </div>
 
