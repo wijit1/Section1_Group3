@@ -21,9 +21,9 @@ export const Collection = () => {
             productsCopy = productsCopy.filter((item)=>item.Category == category)
         }
 
-        // if(brand){
-        //     productsCopy = productsCopy.filter((item)=> item.Brand == brand)
-        // }
+        if(brand){
+            productsCopy = productsCopy.filter((item)=> item.Brand.toLowerCase().includes(brand.toLowerCase()))
+        }
 
         
         productsCopy = productsCopy.filter((item)=> item.Price >= priceRange[0] && item.Price <= priceRange[1])
@@ -51,7 +51,7 @@ export const Collection = () => {
 
     useEffect(() => {
         applyFilter();
-    }, [search, setSearch ,priceRange,setPriceRange,dataList,setDataList,category,])
+    }, [search, setSearch ,priceRange,setPriceRange,dataList,setDataList,category,brand,setCategory])
     
 
 
