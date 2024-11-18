@@ -4,6 +4,7 @@ import { assests } from '../../assets/assets'
 import Image from 'next/image'
 import PriceRangeFilter from './PriceRangeFilter';
 import { ShopContext } from '@/context/ShopContext';
+import { SearchBar_Band_Option } from './SearchBar_band_option';
 
 export const Category = () => {
 
@@ -53,15 +54,16 @@ export const Category = () => {
         />
       </div>
 
-      {isCategoryOpen2 && (
-        <div className='relative'>
-          <div className="p-3 absolute w-full border border-t-0 border-gray-300 bg-yellow-50 ">
-            <p onClick={(e)=>setBrand("Brand A")}  class="hover:text-red-400 hover:underline cursor-pointer">Brand A</p>
-            <p onClick={(e)=>setBrand("Brand B")}  class="hover:text-red-400 hover:underline cursor-pointer">Brand B</p>
-            <p onClick={(e)=>setBrand("Brand C")} class="hover:text-red-400 hover:underline cursor-pointer">Brand C</p>
-          </div>
-        </div>
-      )}
+{isCategoryOpen2 && (
+  <div className='relative'>
+    <div className="p-3 absolute w-full border border-t-0 border-gray-300 bg-yellow-50">
+      {/* ใช้ SearchBar แทนที่ options */}
+      <SearchBar_Band_Option />
+    </div>
+  </div>
+)}
+
+
       <div class="mt-6">
       <PriceRangeFilter/>
       </div>
