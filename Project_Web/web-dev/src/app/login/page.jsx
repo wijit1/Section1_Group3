@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { assests } from "../../../assets/assets";
 import Image from "next/image";
 import BackButton from "@/components/backbutton";
-
+import { ShopContext } from '@/context/ShopContext';
+import MeowPass from '@/components/MeowPass';
 export default function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
-    const [check, setCheck] = useState('');
+    const {check,setCheck} = useContext(ShopContext);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -36,7 +37,7 @@ export default function Login() {
         }
     };
 
-    return (
+    return (check == false?
         <div>
             <div className="m-5 ml-44">
                 <BackButton />
@@ -72,5 +73,9 @@ export default function Login() {
                 </div>
             </div>
         </div>
-    );
+    :(
+        <>
+            <MeowPass/>
+        </>
+    ))
 }
