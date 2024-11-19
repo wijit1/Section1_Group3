@@ -10,6 +10,7 @@ export default function detail_product({ params }) {
     const {id} = unwrappedParams;
     const [product,setProduct] = useState(null);
     const [image,setImage] = useState(null);
+    const [dataList,setDataList] = useState(null);
 
     const fetchData = async ()=>{
         const res = await fetch(`/api/getproduct_id/${id}`);
@@ -24,10 +25,28 @@ export default function detail_product({ params }) {
         }
     }
 
+    const fetachProduct = async()=>{
+        const res = await fetch(`/api/getproduct`);
+    
+        if (res.ok) {
+            const data = await res.json();
+            console.log(data);
+            
+            setDataList(data.products)
+        }
+    }
+
     useEffect(()=>{
         fetchData();
-    },[id])
+        fetachProduct();
+    },[])
 
+    useEffect(()=>{
+        if(dataList && product){
+            let relateProduct = dataList.slice();
+            relateProduct =  relateProduct.filter((item)=>item.Category == product.Category)
+        }
+    },[dataList,setDataList,product,setProduct])
 
     useEffect(()=>{
         if (product && product.Picture) {
@@ -106,10 +125,11 @@ export default function detail_product({ params }) {
                             <img className="w-full rounded-lg" src="luffy-giant-human.jpg" alt="Luffy Giant Human" />
                             <h3 className="text-xl font-semibold mt-2">Luffy Giant Human</h3>
                         </div>
+
                     </div>
                 </section>
             </div>
-
+        
         </div>
     ));
 }
