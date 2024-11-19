@@ -64,7 +64,7 @@ export const Category = () => {
 )}
 
 
-      <div class="mt-6">
+      <div className="mt-6">
       <PriceRangeFilter/>
       </div>
     </div>
