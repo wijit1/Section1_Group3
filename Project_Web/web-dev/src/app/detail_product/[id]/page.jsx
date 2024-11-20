@@ -49,14 +49,14 @@ export default function detail_product({ params }) {
 
     // RelateProduct Filter 
     useEffect(() => {   
-        if (dataList) {
+        if (dataList && product) {
             let  relateProductC = dataList.slice();
             relateProductC = relateProductC.filter((item) => item.Category == product.Category);
             setRelateProduct(relateProductC);
         }
         
         
-    }, [dataList, setDataList])
+    }, [dataList, setDataList,product,setProduct])
 
     // Covert Image to base64
     useEffect(() => {

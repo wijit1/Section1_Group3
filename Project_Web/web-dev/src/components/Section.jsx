@@ -10,9 +10,10 @@ import { ShopContext } from '@/context/ShopContext'
 import search from '@/app/search/page'
 export const Section = () => {
     const [count, setCount] = useState(0);
-    const { products } = useContext(ShopContext);
     const [dataList, setDataList] = useState([]);
-    const [supersalefilter, setsupersalefilter] = useState('');
+    const [supersaleProduct, setsupersaleProduct] = useState(null);
+    const [newProduct,setNewProduct] = useState(null);
+    const [exclusiveProduct,setExclusiveProduct] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,15 +30,24 @@ export const Section = () => {
 
 
     const applyFilter = () => {
-        let supersaleproduct = dataList.slice();
+        let supersale = dataList.slice();
+        let newproduct = dataList.slice();
+        let exclusive = dataList.slice();
 
+        supersale = supersale.filter((item) => item.Category === "Super Sale 2024" )
+        newproduct = newproduct.filter((item) => item.Category === "New Release" )
+        exclusive = exclusive.filter((item) => item.Category === "Premium Super Exclusive" )
+        setsupersaleProduct(supersale);
+        setNewProduct(newproduct);
+        setExclusiveProduct(exclusive);
     }
 
-
-    // useEffect(() => {
-    //     console.log("This is DataList ",dataList);
-        
-    // }, [dataList, setDataList])
+    useEffect(()=>{
+        if(dataList){
+            console.log(dataList);
+            applyFilter();
+        }
+    },[dataList,setDataList])
 
 
     return (
@@ -50,9 +60,9 @@ export const Section = () => {
                     <div className="flex gap-10 mt-7 mb-7 w-full ">
                         <button onClick={() => setCount(count + 1)}><Image className="w-[40px] h-auto rotate-180 " src={assests.arrow} width={40} height={40} /></button>
                 
-                        {dataList ? (
+                        {supersaleProduct ? (
                             <div className='flex flex-wrap justify-center gap-12 w-full'>
-                                {dataList.slice(0,4).map((product,index)=>(
+                                {supersaleProduct.slice(0,4).map((product,index)=>(
                                     <ProductItem product={product} key={index}/>
                                 ))}
                             </div>
@@ -71,9 +81,9 @@ export const Section = () => {
                     <div className="flex gap-10 mt-7 mb-7 justify-between items-center  w-full ">
                         <button onClick={() => setCount(count + 1)}><Image className="w-[40px] h-auto rotate-180 " src={assests.arrow} width={40} height={40} /></button>
                 
-                        {dataList ? (
+                        {newProduct ? (
                             <div className='flex flex-wrap justify-center gap-12 w-full'>
-                                {dataList.slice(0,4).map((product,index)=>(
+                                {newProduct.slice(0,4).map((product,index)=>(
                                     <ProductItem product={product} key={index}/>
                                 ))}
                             </div>
@@ -92,9 +102,9 @@ export const Section = () => {
                     <div className="flex gap-10 mt-7 mb-7 justify-between items-center  w-full ">
                         <button onClick={() => setCount(count + 1)}><Image className="w-[40px] h-auto rotate-180 " src={assests.arrow} width={40} height={40} /></button>
                 
-                        {dataList ? (
+                        {exclusiveProduct ? (
                             <div className='flex flex-wrap justify-center gap-12 w-full'>
-                                {dataList.slice(0,4).map((product,index)=>(
+                                {exclusiveProduct.slice(0,4).map((product,index)=>(
                                     <ProductItem product={product} key={index}/>
                                 ))}
                             </div>
