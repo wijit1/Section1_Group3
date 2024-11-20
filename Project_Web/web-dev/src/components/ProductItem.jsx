@@ -15,7 +15,7 @@ export const ProductItem = ({product}) => {
     }, [product.Picture]);
 
     return (
-        <Link href={`/detail_product/${product.P_ID}`} className="flex flex-col cursor-pointer gap-2 px-7 py-8 border-4 border-gray-800 rounded-xl bg-gray-100 hover:text-red-400 hover:underline">
+        <Link href={`/detail_product/${product.P_ID}`} className="flex flex-col cursor-pointer w-[27%] justify-between gap-2 px-7 py-8 border-4 overflow-hidden border-gray-800 rounded-xl bg-gray-100 hover:text-red-400 hover:underline">
             <div className="w-[248px] h-[248px] bg-red-800">
 
                 {image?(
@@ -25,8 +25,11 @@ export const ProductItem = ({product}) => {
                 )}
             </div>
 
-            <div className="text-2xl font-bold">
+            <div className="text-2xl font-bold overflow-hidden">
                 <p className="font-sans">{product.P_Name}</p>
+                <div className='mt-3 '>
+                <p className='font-sans text-neutral-500'>{product.Brand} </p>
+                </div> 
             </div>
 
             <div className="flex  items-center">
