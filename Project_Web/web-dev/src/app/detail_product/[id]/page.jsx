@@ -1,81 +1,85 @@
 'use client'
 
-import React, { useEffect, useState,useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { assests } from "../../../../assets/assets";
 import Image from "next/image";
 import { toast } from "sonner";
+import { ProductItem } from "@/components/ProductItem";
 
 export default function detail_product({ params }) {
-    const unwrappedParams =  React.use(params);
-    const {id} = unwrappedParams;
-    const [product,setProduct] = useState(null);
-    const [image,setImage] = useState(null);
-    const [dataList,setDataList] = useState(null);
+    const unwrappedParams = React.use(params);
+    const { id } = unwrappedParams;
+    const [product, setProduct] = useState(null);
+    const [image, setImage] = useState(null); // Product With ID params 
+    const [dataList, setDataList] = useState(null); // Products 
+    const [relateProduct,setRelateProduct] = useState(null);
 
-    const fetchData = async ()=>{
+    const fetchData = async () => {
         const res = await fetch(`/api/getproduct_id/${id}`);
         if (res.ok) {
             const data = await res.json();
             setProduct(data.product[0]);
             toast.success("Wonderful");
             console.log(`Get product ID ${id} success !!`);
+            console.log(data);
             
-        }else{
+
+
+        } else {
             console.log("Cannot Get Product from Database");
         }
     }
 
-    const fetachProduct = async()=>{
+    const fetachALLProduct = async () => {
         const res = await fetch(`/api/getproduct`);
-    
+
         if (res.ok) {
             const data = await res.json();
             console.log(data);
-            
             setDataList(data.products)
         }
     }
 
-    useEffect(()=>{
+    // Fetch api get product/id and all product 
+    useEffect(() => {
         fetchData();
-        fetachProduct();
-    },[])
+        fetachALLProduct();
+    }, [])
 
-    useEffect(()=>{
-        if(dataList && product){
-            let relateProduct = dataList.slice();
-            relateProduct =  relateProduct.filter((item)=>item.Category == product.Category)
+
+    // RelateProduct Filter 
+    useEffect(() => {   
+        if (dataList) {
+            let  relateProductC = dataList.slice();
+            relateProductC = relateProductC.filter((item) => item.Category == product.Category);
+            setRelateProduct(relateProductC);
         }
-    },[dataList,setDataList,product,setProduct])
+        
+        
+    }, [dataList, setDataList])
 
-    useEffect(()=>{
+    // Covert Image to base64
+    useEffect(() => {
         if (product && product.Picture) {
             const base64Image = Buffer.from(product.Picture).toString('base64');
             setImage(`data:image/jpeg;base64,${base64Image}`);
         }
-
-        
-    },[product,setProduct])
+    }, [product, setProduct])
 
 
 
 
-    useEffect(()=>{
-        console.log(product);
-        
-    },[product,setProduct])
-
-    return (!product?(
+    return (!product ? (
         <div>
             Is Loading....
         </div>
-    ):(
+    ) : (
         <div>
             <div className="container mx-auto p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Image Gallery */}
                     <div>
-                        <Image src={image} alt={`This is Image product id ${id}`} width={200} height={200}/>
+                        <Image src={image} alt={`This is Image product id ${id}`} width={200} height={200} />
                     </div>
                     {/* Product Details */}
                     <div>
@@ -109,27 +113,18 @@ export default function detail_product({ params }) {
                         </div>
                     </div>
                 </div>
+
                 {/* Related Products */}
                 <section className="mt-12">
                     <h2 className="text-3xl font-bold text-gray-800">Related products</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                        <div className="bg-white p-4 rounded-lg shadow">
-                            <img className="w-full rounded-lg" src="luffy-gear5-run.jpg" alt="Luffy Gear 5 Run" />
-                            <h3 className="text-xl font-semibold mt-2">Luffy Gear 5 Run</h3>
-                        </div>
-                        <div className="bg-white p-4 rounded-lg shadow">
-                            <img className="w-full rounded-lg" src="luffy-gear5-god.jpg" alt="Luffy Gear 5 God" />
-                            <h3 className="text-xl font-semibold mt-2">Luffy Gear 5 God</h3>
-                        </div>
-                        <div className="bg-white p-4 rounded-lg shadow">
-                            <img className="w-full rounded-lg" src="luffy-giant-human.jpg" alt="Luffy Giant Human" />
-                            <h3 className="text-xl font-semibold mt-2">Luffy Giant Human</h3>
-                        </div>
-
+                        {relateProduct?.map((product, index) => (
+                            <ProductItem product={product} key={index} />
+                        ))}
                     </div>
                 </section>
             </div>
-        
+
         </div>
     ));
 }
