@@ -28,7 +28,7 @@ export const ProductItem = ({product}) => {
             <div className="text-2xl font-bold overflow-hidden">
                 <p className="font-sans">{product.P_Name}</p>
                 <div className='mt-3 '>
-                <p className='font-sans text-neutral-500'>{product.Brand} </p>
+                <p className='font-sans text-neutral-500'>Brand: {product.Brand} </p>
                 </div> 
             </div>
 
