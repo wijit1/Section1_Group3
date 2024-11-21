@@ -17,7 +17,7 @@ export default function user_man() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`/api/getuser`);
+      const res = await fetch(`http://localhost:3000/api/getuser`);
 
       if (res.ok) {
         const data = await res.json();

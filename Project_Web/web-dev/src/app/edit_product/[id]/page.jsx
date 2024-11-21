@@ -24,7 +24,7 @@ export default function Edit_Product({ params }) {
 
     
     const fetchData = async ()=>{
-        const res = await fetch(`/api/getproduct_id/${id}`);
+        const res = await fetch(`http://localhost:3000/api/getproduct_id/${id}`);
         if (res.ok) {
             const data = await res.json();
             setProduct(data.product[0]);
@@ -64,7 +64,7 @@ export default function Edit_Product({ params }) {
         formData.append('category',category);
         formData.append('image',imagefile);
         try {
-            const response = await fetch(`/api/submit-pform/${id}`,{
+            const response = await fetch(`http://localhost:3000/api/submit-pform/${id}`,{
                 method: 'PUT',
                 body:formData
             });
@@ -77,7 +77,7 @@ export default function Edit_Product({ params }) {
                 console.log('Error submitting form');
             }
         }catch(error){
-            console.error("Error: ",error);
+            console.log(error)
             
         }
         setName('');

@@ -31,7 +31,7 @@ export default function Add_EditAccount({ params }) {
         formData.append('imageProfile', imageProfile);
         formData.append('user_password',user_password)
         try {
-            const response = await fetch(`/api/adduser/${id}`, {
+            const response = await fetch(`http://localhost:3000/api/adduser/${id}`, {
                 method: 'PUT',
                 body: formData
             });
@@ -57,7 +57,7 @@ export default function Add_EditAccount({ params }) {
     }
 
     const fetchData = async ()=>{
-        const res = await fetch(`/api/getuser/${id}`)
+        const res = await fetch(`http://localhost:3000/api/getuser/${id}`)
         if (res.ok){
             const data = await res.json();
             setUser(data.user[0]);

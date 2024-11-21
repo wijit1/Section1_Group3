@@ -8,11 +8,8 @@ export default function ProductList({ id, name, detail, brand, price, stock, ima
     const handleDelete = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch('/api/getproduct', {
+            const res = await fetch('http://localhost:3000/api/getproduct', {
                 method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
                 body: JSON.stringify({ id }),
             })
             if (res.ok) {

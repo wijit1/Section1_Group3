@@ -15,7 +15,7 @@ export default function detail_product({ params }) {
     const [relateProduct,setRelateProduct] = useState(null);
 
     const fetchData = async () => {
-        const res = await fetch(`/api/getproduct_id/${id}`);
+        const res = await fetch(`http://localhost:3000/api/getproduct_id/${id}`);
         if (res.ok) {
             const data = await res.json();
             setProduct(data.product[0]);

@@ -30,7 +30,7 @@ export default function Edit_Product() {
         formData.append('category',category);
         formData.append('image',imagefile);
         try {
-            const response = await fetch('/api/submit-pform',{
+            const response = await fetch('http://localhost:3000/api/submit-pform',{
                 method: 'POST',
                 body:formData
             });

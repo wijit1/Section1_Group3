@@ -28,7 +28,7 @@ export default function Add_EditAccount() {
         formData.append('imageProfile', imageProfile);
         formData.append('user_password',user_password)
         try {
-            const response = await fetch('/api/adduser', {
+            const response = await fetch('http://localhost:3000/api/adduser', {
                 method: 'POST',
                 body: formData
             });

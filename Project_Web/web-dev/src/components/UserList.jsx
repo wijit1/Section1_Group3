@@ -8,11 +8,8 @@ export default function UserList({ id, name, Address, Email, Tel, bd, image }) {
     const handleDelete = async (e)=>{
         e.preventDefault();
         try {
-            const res = await fetch('/api/getuser', {
+            const res = await fetch('http://localhost:3000/api/getuser', {
                 method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
                 body: JSON.stringify({ id }),
             })
             if (res.ok) {

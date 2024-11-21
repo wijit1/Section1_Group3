@@ -2,12 +2,10 @@
 
 import { assests } from '../../assets/assets'
 import Image from 'next/image'
-import React, { useContext } from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { ProductItem } from './ProductItem'
-import { ShopContext } from '@/context/ShopContext'
-import search from '@/app/search/page'
+
 export const Section = () => {
     const [count, setCount] = useState(0);
     const [dataList, setDataList] = useState([]);
@@ -17,7 +15,7 @@ export const Section = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch(`/api/getproduct`);
+            const res = await fetch(`http://localhost:3000/api/getproduct`);
 
             if (res.ok) {
                 const data = await res.json();
