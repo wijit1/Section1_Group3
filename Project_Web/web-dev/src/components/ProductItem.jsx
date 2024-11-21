@@ -15,7 +15,7 @@ export const ProductItem = ({product}) => {
     }, [product.Picture]);
 
     return (
-        <Link href={`/detail_product/${product.P_ID}`} className="flex flex-col cursor-pointer w-[20rem] justify-between gap-2 px-7 py-8 border-4 overflow-hidden border-gray-800 rounded-xl bg-gray-100 hover:text-red-400 hover:underline">
+        <Link href={`/detail_product/${product.P_ID}`} className="flex flex-col cursor-pointer w-[20rem] justify-between gap-2 px-7 py-8 border-4 overflow-hidden border-gray-800 rounded-xl bg-white hover:text-red-400 hover:underline">
             <div className="w-[255px] h-[255px]">
 
                 {image?(

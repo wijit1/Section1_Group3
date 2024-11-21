@@ -5,10 +5,9 @@ import { ShopContext } from '@/context/ShopContext';
 
 
 export const Collection = () => {
-    const { search, setSearch,priceRange,setPriceRange} = useContext(ShopContext);
+    const { search, setSearch,priceRange,setPriceRange,category,setCategory,brand} = useContext(ShopContext);
     const [filterProducts, setFilterProducts] = useState([]);
     const [dataList,setDataList] = useState([]);
-    const {category,setCategory,brand} = useContext(ShopContext);
 
     
     const applyFilter = () => {
@@ -55,8 +54,9 @@ export const Collection = () => {
     
 
 
+
     return  filterProducts.length > 0 ?(
-        <div className='flex  justify-start  w-full border-4  border-gray-400 rounded-xl p-10 flex-wrap gap-8'>
+        <div className='flex  justify-start  w-full border-4  border-gray-400 rounded-xl p-10 flex-wrap gap-6'>
             {filterProducts?.map((product, index) => (
                 <ProductItem product={product} key={index} />
             ))} 
