@@ -1,16 +1,21 @@
 "use client";
 
-import { useContext, useState } from 'react';
+import { useContext, useState,useEffect } from 'react';
 import { assests } from "../../../assets/assets";
 import Image from "next/image";
 import BackButton from "@/components/backbutton";
 import { ShopContext } from '@/context/ShopContext';
 import MeowPass from '@/components/MeowPass';
+import Cookies from 'js-cookie';
+
+
 export default function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
-    const {check,setCheck} = useContext(ShopContext);
+    // const [token, setToken] = useState(null);
+    const {token,setToken} = useContext(ShopContext);
+
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -19,17 +24,19 @@ export default function Login() {
         try {
             const res = await fetch('http://localhost:3000/api/login', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password }),
             });
 
             const data = await res.json();
 
             if (res.ok) {
-                setCheck(data.check);
+                document.cookie = `token=${data.token}; path=/; max-age=3600`;
                 setMessage(data.message);
                 console.log('Data received:', data);
-                console.log(check)
+                const tokenFromCookie =  Cookies.get('token');
+                setToken(tokenFromCookie);
+            }else{
+                setMessage(data.message);
             }
         } catch (error) {
             console.error('Error:', error);
@@ -37,7 +44,12 @@ export default function Login() {
         }
     };
 
-    return (check == false?
+    useEffect(()=>{
+        const tokenFromCookie =  Cookies.get('token');
+        setToken(tokenFromCookie);
+    },[])
+
+    return (!token?
         <div>
             <div className="m-5 ml-44">
                 <BackButton />

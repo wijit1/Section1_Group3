@@ -2,14 +2,16 @@
 
 import React, { useContext, useEffect, useState, useMemo } from 'react';
 import Link from 'next/link';
-import Image from "next/image";
 import { SearchBar_Man } from '@/components/SearchBar_Man';
 import { ShopContext } from '@/context/ShopContext';
 import ProductList from '@/components/ProductList';
 import BackButton from '@/components/backbutton';
+import Cookies from 'js-cookie';
+import MeowWarning from '@/components/MeowWarning';
+
 
 export default function ProductMan() {
-  const { search } = useContext(ShopContext);
+  const { token, setToken,search } = useContext(ShopContext);
   const [dataList, setDataList] = useState([]);
 
   useEffect(() => {
@@ -43,7 +45,13 @@ export default function ProductMan() {
     });
   }, [filterProducts]);
 
-  return (
+  
+  useEffect(()=>{
+    const tokenFromCookie =  Cookies.get('token');
+    setToken(tokenFromCookie);
+  },[])
+
+  return (token?
     <div>
       <div className="flex justify-items-end items-center m-5 pl-60">
 
@@ -96,6 +104,8 @@ export default function ProductMan() {
         </table>
       </div>
     </div>
-  );
+  :(
+    <MeowWarning/>
+  ))
 }
 

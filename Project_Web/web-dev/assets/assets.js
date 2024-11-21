@@ -59,7 +59,7 @@ export const assests = {
     ,calendar
     ,phone_call
     ,photo_book
-    ,moodeng,meow,iconprofile
+    ,moodeng,meow,iconprofile,meowAngry
 }
 
 

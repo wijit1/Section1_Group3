@@ -101,15 +101,9 @@ export default function detail_product({ params }) {
                         <div className="mt-6">
                             <h2 className="text-2xl font-semibold">Detail</h2>
                             <p className="mt-2 text-gray-700">
-                                *Bonus Monkey Luffy<br />
-                                *2 color (White pants / Orange pants)
+                                {product.Detail}
                             </p>
-                            <p className="mt-4 text-gray-700">
-                                Material: Resin / PU<br />
-                                Product size: POPmax scale<br />
-                                Limited production amount: TBD<br />
-                                Product arrival: Q2 2023
-                            </p>
+                            
                         </div>
                     </div>
                 </div>

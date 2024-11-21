@@ -7,9 +7,12 @@ import { SearchBar_Man } from '@/components/SearchBar_Man';
 import { ShopContext } from '@/context/ShopContext';
 import BackButton from '@/components/backbutton';
 import UserList from '@/components/UserList';
+import Cookies from 'js-cookie';
+import MeowWarning from '@/components/MeowWarning';
+
 
 export default function user_man() {
-  const { search } = useContext(ShopContext);
+  const { search,token,setToken } = useContext(ShopContext);
   const [dataList, setDataList] = useState([])
   useEffect(() => {
     console.log(dataList)
@@ -43,7 +46,16 @@ export default function user_man() {
     });
   }, [filterUser]);
 
-  return (
+
+  useEffect(()=>{
+    const tokenFromCookie =  Cookies.get('token');
+    setToken(tokenFromCookie);
+  },[])
+
+
+
+
+  return (token?
     <div>
       <div className="flex justify-items-end items-center m-5 pl-60">
 
@@ -96,6 +108,8 @@ export default function user_man() {
         </table>
       </div>
     </div>
-  );
+  :(
+    <MeowWarning/>
+  ));
 }
 

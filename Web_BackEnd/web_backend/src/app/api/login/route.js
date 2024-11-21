@@ -1,4 +1,5 @@
 import { createConnection } from '@/lib/db';
+import { generateToken } from '@/lib/jwt';
 // import bcrypt from 'bcryptjs';
 import { NextResponse } from 'next/server';
 
@@ -22,31 +23,22 @@ export async function POST(req) {
         console.log('User password from DB:', user.User_password);
         console.log('Password entered by user:', password);
 
-        // ตรวจสอบรหัสผ่าน
-        // const isMatch = await bcrypt.compare(password, user.User_password);
-        // console.log('Password match result:', isMatch);
         if(password===user.User_password){
+
+            const token = generateToken(user);
             
             console.log('User password from DB:', user.User_password);
             console.log('Password entered by user:', password);
-            return NextResponse.json({
-                message: 'Login successful',check: true,
-                user: { id: user.User_ID, username: user.User_Name }
-            }, { status: 200 });
+
+
+            return NextResponse.json({message: 'Login successful',check: true,token}, { status: 200 });
+
+
         }else{
             return NextResponse.json({
-                message: 'password not match',check: false
-            })
+                message: 'password not match',check: false},{ status: 404 })
         }
 
-        // if (!isMatch) {
-        //     return NextResponse.json({ message: 'Incorrect password' }, { status: 401 });
-        // }
-
-        return NextResponse.json({
-            message: 'Login successful',
-            user: { id: user.User_ID, username: user.User_Name }
-        }, { status: 200 });
 
     } catch (error) {
         console.error("Error in POST /api/login:", error);

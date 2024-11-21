@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
+
 import Image from 'next/image'
 import { assests } from '../../assets/assets'
-import { ShopContext } from '@/context/ShopContext';
+import Cookies from 'js-cookie';
 
 export default function MeowPass() {
-    const {check,setCheck} = useContext(ShopContext);
+
     const handleLogOut = ()=>{
-        setCheck(false);
+        Cookies.remove('token')
     }
   return (
     <div className='my-36 flex flex-col justify-center items-center gap-10 text-3xl'>
