@@ -13,7 +13,7 @@ export async function GET(req){
         return NextResponse.json(
             {products:rows , message:"Get Product success"})
     }catch(error){
-        console.log(error);
+        return NextResponse.json({message:"No Product "})
     }
 }
 
