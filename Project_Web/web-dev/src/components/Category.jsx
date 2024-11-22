@@ -11,7 +11,7 @@ export const Category = () => {
   /* ตั้งไว้ยังไม่โชว์ถ้าไม่กด */
   const [isCategoryOpen1, setIsCategoryOpen1] = useState(false)
   const [isCategoryOpen2, setIsCategoryOpen2] = useState(false)
-  const {setCategory,setBrand} = useContext(ShopContext);
+  const {setCategory,setBrand,category} = useContext(ShopContext);
 
   const toggleCategory1 = () => setIsCategoryOpen1(!isCategoryOpen1)
   const toggleCategory2 = () => setIsCategoryOpen2(!isCategoryOpen2)
@@ -33,10 +33,10 @@ export const Category = () => {
       {isCategoryOpen1 && (
         <div className='relative'>
           <div className="p-3 absolute w-full border border-t-0 border-gray-300 bg-yellow-50">
-            <p onClick={(e)=>setCategory('All')} class="hover:text-red-400 hover:underline cursor-pointer">All</p>
-            <p onClick={(e)=>setCategory('Super Sale 2024')} class="hover:text-red-400 hover:underline cursor-pointer">Super Sale 2024</p>
-            <p onClick={(e)=>setCategory('New Release')} class="hover:text-red-400 hover:underline cursor-pointer">New Release</p>
-            <p onClick={(e)=>setCategory('Premium Super Exclusive')} class="hover:text-red-400 hover:underline cursor-pointer">Premium Super Exclusive</p>
+            <p onClick={(e)=>setCategory('All')} className={`hover:text-red-400 hover:underline cursor-pointer ${category == "All" ?('text-red-400'):(null)}`}>All</p>
+            <p onClick={(e)=>setCategory('Super Sale 2024')} className={`hover:text-red-400 hover:underline cursor-pointer ${category == "Super Sale 2024" ?('text-red-400'):(null)}`}>Super Sale 2024</p>
+            <p onClick={(e)=>setCategory('New Release')} className={`hover:text-red-400 hover:underline cursor-pointer ${category == "New Release" ?('text-red-400'):(null)}`}>New Release</p>
+            <p onClick={(e)=>setCategory('Premium Super Exclusive')} className={`hover:text-red-400 hover:underline cursor-pointer ${category == "Premium Super Exclusive" ?('text-red-400'):(null)}`}>Premium Super Exclusive</p>
           </div>
         </div>
       )}

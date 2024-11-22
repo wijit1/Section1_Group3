@@ -19,6 +19,9 @@ export const ShopContextProvider = (props) => {
     const [brand,setBrand] = useState('');
     const [token, setToken] = useState(null);
 
+
+
+
     const handleMinPriceInput = (e) => {
         const value = Number(e.target.value);
         if (value >= minPrice && value <= priceRange[1]) {
@@ -32,7 +35,6 @@ export const ShopContextProvider = (props) => {
             setPriceRange([priceRange[0], value]);
         }
     };
-
 
 
     const value = {
