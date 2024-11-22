@@ -24,37 +24,41 @@ export default function ProductList({ id, name, detail, brand, price, stock, ima
     }
     return (
         <tr key={id} className="border-t border-gray-200">
-            <td className="px-4 py-3 text-gray-600 w-1/12">{id}</td>
+            <td className="px-4 py-3 text-gray-600 w-1/12 text-xl">{id}</td>
 
             <td className="px-4 py-3 w-2/12">
-                <div className="flex items-center">
-                    <Image src={image} width={50} height={50} alt="Product Image" />
-                    <span className="ml-4 w-14 text-gray-700">{name}</span>
+                <div className="w-40 h-40 overflow-hidden flex items-center justify-center ">
+                    <img
+                        src={image}
+                        alt="Product Image"
+                        className="object-fill object-center w-full h-full "
+                    />
                 </div>
+                <span className="ml-1 text-gray-700 text-xl break-words">{name}</span>
             </td>
 
-            <td className="py-3 text-gray-600  w-2/12 break-words">{detail}</td>
+            <td className="py-3 text-gray-600  w-2/12 break-words  text-xl">{detail}</td>
 
-            <td className="px-4 py-3 text-gray-600 w-1/12 pl-9">{stock}</td>
+            <td className="px-4 py-3 text-gray-600 w-1/12 pl-9  text-xl">{stock}</td>
 
-            <td className="px-4 py-3 text-gray-600 w-1/12">{brand}</td>
+            <td className="px-4 py-3 text-gray-600 w-1/12  text-xl">{brand}</td>
 
-            <td className="px-4 py-3 text-gray-600  items-center w-1/12">
-                <div className="flex">
+            <td className="px-4 py-3 text-gray-600  items-center w-1/12  text-xl">
+                <div className="flex ">
                     {price}
                     <Image src={assests.dollar} alt="coin" className="w-5 h-5 ml-1" />
                 </div>
             </td>
 
             <td className="px-4 py-3 w-1/12  text-center ">
-                <button onClick={handleDelete} className="p-2 text-red-500 hover:text-red-700 border-blue-900">
-                    <Image src={assests.trash} alt="Delete" className="w-5 h-5 ml-3" />
+                <button onClick={handleDelete} className="p-2 text-red-500 hover:text-red-700 border-blue-900  text-xl">
+                    <Image src={assests.trash} alt="Delete" className="w-7 h-7 ml-3 " />
                     Delete
                 </button>
 
-                <button className="p-2 text-blue-500 hover:text-blue-700">
+                <button className="p-2 text-blue-500 hover:text-blue-700  text-xl">
                     <Link href={`/edit_product/${id}`}>
-                        < Image src={assests.setting} alt="Edit" className="w-5 h-5 ml-2" />
+                        < Image src={assests.setting} alt="Edit" className="w-7 h-7 ml-1" />
                         Edit
                     </Link>
                 </button>
