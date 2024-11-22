@@ -79,7 +79,7 @@ export default function detail_product({ params }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Image Gallery */}
                     <div>
-                        <Image src={image} alt={`This is Image product id ${id}`} width={200} height={200} />
+                        <Image src={image} alt={`This is Image product id ${id}`} width={700} height={700} />
                     </div>
                     {/* Product Details */}
                     <div>
