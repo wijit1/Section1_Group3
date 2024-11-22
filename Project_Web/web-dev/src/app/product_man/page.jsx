@@ -64,7 +64,7 @@ export default function ProductMan() {
       <div className="flex justify-between ml-56 pl-4">
         <SearchBar_Man />
         <Link href={'/edit_product'}>
-          <button className="font-semibold bg-yellow-500 text-black px-8 py-3 hover:bg-yellow-600 mr-60 rounded-2xl whitespace-nowrap">Add Product</button>
+          <button className="font-semibold bg-yellow-500 text-black px-8 py-3 hover:bg-yellow-600 mr-60 rounded-2xl whitespace-nowrap  text-2xl">Add Product</button>
         </Link>
       </div>
 
@@ -72,13 +72,13 @@ export default function ProductMan() {
         <table className="w-full bg-white border border-gray-200 rounded-lg shadow-lg table-fixed">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-[3%]">ID</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Product</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-2/12 ">Detail</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Stock</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Brand</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Price</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-center w-1/12">Actions</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-[3%]  text-2xl ">ID</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-[12%] text-2xl">Product</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-[15%]  text-2xl">Detail</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-[5%]  text-2xl">Stock</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-[5%]  text-2xl">Brand</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-[5%] text-2xl">Price</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-center w-[7%]  text-2xl">Actions</th>
             </tr>
           </thead>
           <tbody>
