@@ -55,7 +55,7 @@ export default function Login() {
                 setMessage(data.message);
             }
         } catch (error) {
-            console.error('Error:', error);
+            console.log(error);
             setMessage('Something went wrong');
         }
     };
