@@ -31,7 +31,7 @@ export async function POST(req) {
             console.log('Password entered by user:', password);
 
 
-            return NextResponse.json({message: 'Login successful',check: true,token}, { status: 200 });
+            return NextResponse.json({message: 'Login successful',check: true,token,user}, { status: 200 });
 
 
         }else{

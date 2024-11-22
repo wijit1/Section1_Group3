@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext, useState,useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { assests } from "../../../assets/assets";
 import Image from "next/image";
 import BackButton from "@/components/backbutton";
@@ -14,8 +14,19 @@ export default function Login() {
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
     // const [token, setToken] = useState(null);
-    const {token,setToken} = useContext(ShopContext);
+    const { token, setToken } = useContext(ShopContext);
 
+    const LoginTime = async (id, name) => {
+        const date = new Date(Date.now()); // สร้างวันที่จาก Date.now()
+        const year = date.getFullYear(); // ดึงปี
+        const month = String(date.getMonth() + 1).padStart(2, '0'); // ดึงเดือนและเพิ่ม 0 ข้างหน้าหากน้อยกว่า 10
+        const day = String(date.getDate()).padStart(2, '0'); // ดึงวันและเพิ่ม 0 ข้างหน้าหากน้อยกว่า 10
+        const formattedDate = `${year}-${month}-${day}`; // จัดรูปแบบเป็น YYYY-MM-DD
+        const res = await fetch('http://localhost:3000/api/login_data', {
+            method: 'POST',
+            body: JSON.stringify({ id, name, formattedDate}),
+        })
+    }
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -32,10 +43,14 @@ export default function Login() {
             if (res.ok) {
                 document.cookie = `token=${data.token}; path=/; max-age=3600`;
                 setMessage(data.message);
-                console.log('Data received:', data);
-                const tokenFromCookie =  Cookies.get('token');
+                console.log("This is Data recieved");
+                console.log(data.user.User_ID);
+                const tokenFromCookie = Cookies.get('token');
                 setToken(tokenFromCookie);
-            }else{
+
+                LoginTime(data.user.User_ID, data.user.User_Name);  // INsert into table loginDate 
+
+            } else {
                 setMessage(data.message);
             }
         } catch (error) {
@@ -44,12 +59,12 @@ export default function Login() {
         }
     };
 
-    useEffect(()=>{
-        const tokenFromCookie =  Cookies.get('token');
+    useEffect(() => {
+        const tokenFromCookie = Cookies.get('token');
         setToken(tokenFromCookie);
-    },[])
+    }, [])
 
-    return (!token?
+    return (!token ?
         <div>
             <div className="m-5 ml-44">
                 <BackButton />
@@ -85,9 +100,9 @@ export default function Login() {
                 </div>
             </div>
         </div>
-    :(
-        <>
-            <MeowPass/>
-        </>
-    ))
+        : (
+            <>
+                <MeowPass />
+            </>
+        ))
 }
