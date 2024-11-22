@@ -4,8 +4,8 @@ export default function team() {
     return (
         <div>
             <section className="text-center py-10">
-                <h1 className="text-yellow-500 text-3xl font-semibold mb-2">Meet our bear team</h1>
-                <p className="text-gray-600 text-sm mb-8 text-center py-10">Our philosophy is simple, hire great people and give them the resources and support to do their best work</p>
+                <h1 className="text-yellow-500 text-6xl font-semibold mb-2 ">Meet our bear team</h1>
+                <p className="text-gray-600 text-2xl mb-8 text-center py-10">Our philosophy is simple, hire great people and give them the resources and support to do their best work</p>
                 <div className="flex justify-center gap-6 flex-wrap">
                     <div className="bg-white rounded-lg p-5 shadow-lg w-56 text-center">
                         <Image src={assests.ton} alt="Wijit Nildee Image" className="w-36 h-36 rounded-md object-cover mx-auto mb-4" />

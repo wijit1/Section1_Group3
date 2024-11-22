@@ -14,7 +14,7 @@ export const SearchBar_Band_Option = () => {
                 <input
                     value={brand}
                     onChange={(e) => setBrand(e.target.value)}
-                    className='flex-1 outline-none bg-transparent text-lg px-2 pl-44'
+                    className='outline-none  bg-transparent'
                     type="text"
                     placeholder='Search'
                 />

@@ -19,7 +19,7 @@ export const ProductItem = ({product}) => {
             <div className="w-[255px] h-[255px]">
 
                 {image?(
-                    <img className='w-full h-full' src={image} alt={`This is Image product: ${product.P_Name}`} />
+                    <img className='w-full h-full object-cover ' src={image} alt={`This is Image product: ${product.P_Name}`} />
                 ):(
                     <Image className='w-full h-full' src={assests.meow}  alt="Image is not found" width={100} height={100} />
                 )}

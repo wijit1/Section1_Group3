@@ -68,7 +68,7 @@ export default function user_man() {
       <div className="flex justify-between ml-56 pl-4">
         <SearchBar_Man />
         <Link href={'/Add_EditAccount'}>
-          <button className="font-semibold bg-yellow-500 text-black px-8 py-3 hover:bg-yellow-600 mr-60 rounded-2xl whitespace-nowrap">Add User</button>
+          <button className="font-semibold bg-yellow-500 text-black px-8 py-3 hover:bg-yellow-600 mr-60 rounded-2xl whitespace-nowrap text-2xl">Add User</button>
         </Link>
       </div>
 
@@ -76,13 +76,13 @@ export default function user_man() {
         <table className="w-full bg-white border border-gray-200 rounded-lg shadow-lg table-fixed">
           <thead className="bg-gray-100">
             <tr>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-[3%]">ID</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Name</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-2/12 ">Address</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Email</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Tel</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12">Brith-Date</th>
-              <th className="px-4 py-2 text-gray-700 font-medium text-center w-1/12">Actions</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-[3%] text-2xl">ID</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12 text-2xl">Name</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-2/12 text-2xl">Address</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12 text-2xl">Email</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12 text-2xl">Tel</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-left w-1/12 text-2xl">Brith-Date</th>
+              <th className="px-4 py-2 text-gray-700 font-medium text-center w-1/12 text-2xl">Actions</th>
             </tr>
           </thead>
           <tbody>
