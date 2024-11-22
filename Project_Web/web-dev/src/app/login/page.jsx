@@ -51,6 +51,7 @@ export default function Login() {
                 LoginTime(data.user.User_ID, data.user.User_Name);  // INsert into table loginDate 
 
             } else {
+                console.log(data);
                 setMessage(data.message);
             }
         } catch (error) {
