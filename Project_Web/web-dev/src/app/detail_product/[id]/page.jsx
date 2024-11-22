@@ -91,7 +91,7 @@ export default function detail_product({ params }) {
                         </div>
                         <div className="mt-4">
                             <label htmlFor="quantity" className="block font-medium text-gray-700">Quantity</label>
-                            <input id="quantity" type="number" defaultValue={1} className="mt-1 block w-16 rounded-md border-gray-300 shadow-sm" />
+                            <input id="quantity" type="number" defaultValue={1} className="mt-1 block w-16 rounded-md border-gray-900 shadow-sm" />
                         </div>
                         <button className="mt-6 w-full bg-pink-500 text-white py-3 rounded-lg hover:bg-pink-600 flex items-center justify-center">
                             <Image src={assests.money_bag} className="w-7 h-7 coin" alt="Coin Image" />
@@ -99,7 +99,12 @@ export default function detail_product({ params }) {
                         </button>
                         {/* Details Messge */}
                         <div className="mt-6">
-                            <h2 className="text-2xl font-semibold">Detail</h2>
+                            <h2 className="text-3xl font-semibold">Detail</h2>
+                                <p className="text-xl">
+                                Product ID: {product.P_ID} <br></br>
+                                Stock: {product.Stock} <br></br>
+                                Brand: {product.Brand}
+                                </p>
                             <p className="mt-2 text-gray-700">
                                 {product.Detail}
                             </p>

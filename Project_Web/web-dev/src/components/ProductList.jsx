@@ -39,9 +39,11 @@ export default function ProductList({ id, name, detail, brand, price, stock, ima
 
             <td className="px-4 py-3 text-gray-600 w-1/12">{brand}</td>
 
-            <td className="px-4 py-3 text-gray-600 flex items-center w-1/12">
-                {price}
-                <Image src={assests.dollar} alt="coin" className="w-5 h-5 ml-1" />
+            <td className="px-4 py-3 text-gray-600  items-center w-1/12">
+                <div className="flex">
+                    {price}
+                    <Image src={assests.dollar} alt="coin" className="w-5 h-5 ml-1" />
+                </div>
             </td>
 
             <td className="px-4 py-3 w-1/12  text-center ">
