@@ -27,14 +27,14 @@ export default function ProductList({ id, name, detail, brand, price, stock, ima
             <td className="px-4 py-3 text-gray-600 w-1/12 text-xl">{id}</td>
 
             <td className="px-4 py-3 w-2/12">
-                <div className="w-40 h-40 overflow-hidden flex items-center justify-center ">
+                <div className="w-44 h-44 overflow-hidden flex items-center justify-center ">
                     <img
                         src={image}
                         alt="Product Image"
-                        className="object-fill object-center w-full h-full "
+                        className="object-cover  w-full h-full "
                     />
                 </div>
-                <span className="ml-1 text-gray-700 text-xl break-words">{name}</span>
+                <span className=" text-gray-700 text-xl break-words">{name}</span>
             </td>
 
             <td className="py-3 text-gray-600  w-2/12 break-words  text-xl">{detail}</td>
