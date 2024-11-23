@@ -27,7 +27,7 @@ export const Collection = () => {
 
         
         productsCopy = productsCopy.filter((item)=> item.Price >= priceRange[0] && item.Price <= priceRange[1])
-
+        
 
 
         setFilterProducts(productsCopy);

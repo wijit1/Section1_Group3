@@ -50,7 +50,7 @@ export const Section = () => {
 
     return (
         <div>
-            <section className="flex flex-col gap-32  justify-center mt-10 border-2 border-green-600 ">
+            <section className="flex flex-col gap-32  justify-center mt-10 ">
                 {/* Super Sale Section */}
                 <div className="flex flex-col items-start justify-items-start px-32 ">
                     <p className="text-5xl text-yellow-400 font-bold border-8 border-yellow-500 p-3 rounded-2xl bg-zinc-800 "> Super Sale </p>

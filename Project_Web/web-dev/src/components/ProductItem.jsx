@@ -15,11 +15,13 @@ export const ProductItem = ({product}) => {
     }, [product.Picture]);
 
     return (
-        <Link href={`/detail_product/${product.P_ID}`} className="flex flex-col cursor-pointer w-[20rem] justify-between gap-2 px-7 py-8 border-4 overflow-hidden border-gray-800 rounded-xl bg-white hover:text-red-400 hover:underline mt-3">
+        <Link href={`/detail_product/${product.P_ID}`} className="flex flex-col cursor-pointer w-[20rem] 
+        justify-between gap-2 px-7 py-8 border-4 overflow-hidden border-gray-600 rounded-xl bg-white 
+        hover:text-red-400 hover:duration-300 duration-500 mt-3  hover:bg-gray-100">
             <div className="w-[255px] h-[255px]">
 
                 {image?(
-                    <img className='w-full h-full object-cover ' src={image} alt={`This is Image product: ${product.P_Name}`} />
+                    <img className='w-full h-full object-cover  rounded-md ' src={image} alt={`This is Image product: ${product.P_Name}`} />
                 ):(
                     <Image className='w-full h-full' src={assests.meow}  alt="Image is not found" width={100} height={100} />
                 )}

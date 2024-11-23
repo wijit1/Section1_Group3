@@ -11,7 +11,7 @@ export const ShopContext = createContext();
 export const ShopContextProvider = (props) => {
     const [search, setSearch] = useState('');
     const minPrice = 0; 
-    const maxPrice = 20000;
+    const maxPrice = 100000;
     const [priceRange, setPriceRange] = useState([minPrice, maxPrice]);
     const [imagefile,setImagefile] = useState(null);
     const [imageProfile,setImageProfile] = useState(null);
