@@ -2,10 +2,10 @@
 import { NextResponse } from "next/server";
 import { createConnection } from "@/lib/db";
 
-export async function PUT(req,{params}){
-    const {id}= params;
-    const formData = await req.formData(); 
-    try{
+export async function PUT(req, { params }) {
+    const { id } = params;
+    const formData = await req.formData();
+    try {
         const name = formData.get('name');
         const detail = formData.get('detail');
         const price = formData.get('price');
@@ -14,20 +14,28 @@ export async function PUT(req,{params}){
         const brand = formData.get('brand');
         const category = formData.get('category');
 
-        
 
-        const imageByteData = await image.arrayBuffer();
-        const buffer = Buffer.from(imageByteData);
+        if (image instanceof File && image.size > 0) {
+            const imageByteData = await image.arrayBuffer();
+            const buffer = Buffer.from(imageByteData);
+            const db = await createConnection();
+            const [result] = await db.query(
+                'UPDATE itemproduct SET P_Name = ? ,Detail = ?, Price = ? , Stock = ? ,Brand = ? , Picture = ?, Category = ?  WHERE P_ID = ?  '
+                , [name, detail, price, stock, brand, buffer, category, id]);
+            
+            return NextResponse.json({ result, message: "Update product success", image })
+                
+        }
+
         const db = await createConnection();
         const [result] = await db.query(
-            'UPDATE itemproduct SET P_Name = ? ,Detail = ?, Price = ? , Stock = ? ,Brand = ? , Picture = ? WHERE P_ID = ?  '
-            , [name, detail,price,stock,brand,buffer,id]);
-    
-        return NextResponse.json({result,message:"Update product success",image})
+            'UPDATE itemproduct SET P_Name = ? ,Detail = ?, Price = ? , Stock = ? ,Brand = ? ,Category = ?  WHERE P_ID = ?  '
+            , [name, detail, price, stock, brand,category,id]);
+        return NextResponse.json({ result, message: "Update product success"})
 
 
-    }catch(error){
+    } catch (error) {
         console.log("Error ");
-        return NextResponse.json({error:error.message})
+        return NextResponse.json({ error: error.message })
     }
 }
