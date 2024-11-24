@@ -30,7 +30,11 @@ export default function UserList({ id, name, Address, Email, Tel, bd, image }) {
 
             <td className="px-4 py-3 w-2/12">
                 <div className="flex items-center">
-                    <Image src={image} width={50} height={50} alt="Product Image" />
+                    {image?(
+                        <Image src={image} width={50} height={50} alt="Product Image" />
+                    ):(
+                        null
+                    )}
                     <span className="ml-4 w-14 text-gray-700 text-xl">{name}</span>
                 </div>
             </td>

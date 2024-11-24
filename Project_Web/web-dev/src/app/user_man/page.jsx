@@ -41,8 +41,11 @@ export default function user_man() {
 
   const images = useMemo(() => {
     return filterUser.map((user) => {
-      const base64Image = Buffer.from(user.profile_image).toString('base64');
-      return `data:image/jpeg;base64,${base64Image}`;
+      if(user.profile_image != null){
+        const base64Image = Buffer.from(user.profile_image).toString('base64');
+        return `data:image/jpeg;base64,${base64Image}`;
+      }
+      return null
     });
   }, [filterUser]);
 
