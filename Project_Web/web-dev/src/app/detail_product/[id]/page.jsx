@@ -51,7 +51,8 @@ export default function detail_product({ params }) {
     useEffect(() => {   
         if (dataList && product) {
             let  relateProductC = dataList.slice();
-            relateProductC = relateProductC.filter((item) => item.Category == product.Category);
+            relateProductC = relateProductC.filter((item) => item.Category == product.Category && item.P_Name != product.P_Name);
+            relateProductC = relateProductC.slice(0,4);
             setRelateProduct(relateProductC);
         }
         
@@ -116,7 +117,7 @@ export default function detail_product({ params }) {
                 {/* Related Products */}
                 <section className="mt-12">
                     <h2 className="text-3xl font-bold text-gray-800">Related products</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10  mt-6">
                         {relateProduct?.map((product, index) => (
                             <ProductItem product={product} key={index} />
                         ))}
