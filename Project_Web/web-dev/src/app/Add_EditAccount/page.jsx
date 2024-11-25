@@ -1,9 +1,8 @@
 'use client'
-import { useEffect, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { assests } from "../../../assets/assets";
 import Image from "next/image";
 import { toast } from "sonner";
-import UploadImage from "@/components/UploadImage";
 import { ShopContext } from "@/context/ShopContext";
 import BackButton from "@/components/backbutton";
 import UploadProfile from "@/components/UploadProfile";
@@ -37,14 +36,14 @@ export default function Add_EditAccount() {
                 console.log("Form submitted successfully");
                 const data = response.json()
                 console.log(data);
-                
 
             } else {
                 console.log('Error submitting form');
+                const data = response.json()
+                console.log(data);
             }
         } catch (error) {
             console.error("Error: ", error);
-
         }
         setName('');
         setEmail('');

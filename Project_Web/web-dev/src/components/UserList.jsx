@@ -33,7 +33,7 @@ export default function UserList({ id, name, Address, Email, Tel, bd, image }) {
                     {image?(
                         <Image src={image} width={50} height={50} alt="Product Image" />
                     ):(
-                        null
+                        <Image src={assests.iconprofile} width={50} height={50} alt="Product Image" />
                     )}
                     <span className="ml-4 w-14 text-gray-700 text-xl">{name}</span>
                 </div>

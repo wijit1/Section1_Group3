@@ -25,7 +25,7 @@ export default function UploadProfile() {
                 <>
                     <Image src={assests.iconprofile} alt='Default' width={100} height={100} />
                     <label className=' text-mg cursor-pointer underline text-blue-500 '>
-                        <input onChange={handleFileChange} className='hidden' type="file" name="Upload" id="" />
+                        <input onChange={handleFileChange} className='hidden' type="file" name="Upload"/>
                         Select Profile
                     </label>
 

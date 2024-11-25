@@ -37,12 +37,16 @@ export default function Edit_Product() {
             if (response.ok){
                 toast.success('Form submitted successfully')
                 console.log("Form submitted successfully");
-
+                const data = await response.json()
+                console.log(data);
+            
             }else {
                 console.log('Error submitting form');
             }
         }catch(error){
             console.error("Error: ",error);
+            const data = await response.json()
+            console.log(data);
             
         }
         setName('');
