@@ -53,9 +53,6 @@ export const Collection = () => {
         applyFilter(); 
     }, [dataList,setDataList])
     
-    // useEffect(() => {
-    //     applyFilter();
-    // }, [search, setSearch ,priceRange,setPriceRange,dataList,setDataList,category,brand,setCategory])
     
 
 

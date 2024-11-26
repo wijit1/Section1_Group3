@@ -28,6 +28,7 @@ export const Category = () => {
           src={assests.play}
           width={30}
           height={30}
+          alt='Load'
         />
       </div>
       {isCategoryOpen1 && (

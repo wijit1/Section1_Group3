@@ -50,14 +50,6 @@ const PriceRangeFilter = () => {
             className="w-20 text-center bg-gray-100"
           />
         </div>
-
-        {/* ปุ่มค้นหา */}
-        {/* <button 
-          onClick={handleSearch}
-          className="w-full bg-yellow-300 hover:bg-yellow-300 text-white py-2 rounded-md"
-        >
-          ค้นหา
-        </button> */}
       </div>
     </div>
   );
