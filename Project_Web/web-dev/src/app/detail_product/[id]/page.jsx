@@ -71,8 +71,8 @@ export default function detail_product({ params }) {
 
 
     return (!product ? (
-        <div>
-            Is Loading....
+        <div className="flex justify-center mt-56 m-auto">
+            <h1 className=" text-3xl font-bold border-4  bg-green-300  border-black rounded-full p-4">Is Loading....</h1>
         </div>
     ) : (
         <div>

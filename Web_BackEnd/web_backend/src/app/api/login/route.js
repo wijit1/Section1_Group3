@@ -1,9 +1,10 @@
 import { createConnection } from '@/lib/db';
-import { generateToken } from '@/lib/jwt';
+import { generateToken,verifyToken } from '@/lib/jwt';
 // import bcrypt from 'bcryptjs';
 import { NextResponse } from 'next/server';
 
 export async function POST(req) {
+
     try {
         const body = await req.json();
         const { username, password } = body;
