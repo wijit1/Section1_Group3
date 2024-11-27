@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Link from 'next/link';
 
 export default function Footer() {
  return (
@@ -17,6 +17,11 @@ export default function Footer() {
             <div>
                 <h3 className="text-lg font-semibold">Contact Us</h3>
                 <p className="text-gray-700 mt-2 font-mono">999 ถ.พุทธมณฑลสาย 4 ตำบล ศาลายา อำเภอพุทธมณฑลสาย นครปฐม 73170</p>
+            </div>
+
+            <div>
+                <p>ข่าวเกี่ยวกับของเล่น</p>
+                <Link className='hover:text-blue-400 hover:underline text-2xl text-red-400 font-bold' href={'/newsp'}>News TOYS</Link>
             </div>
         </div>
    </div>
